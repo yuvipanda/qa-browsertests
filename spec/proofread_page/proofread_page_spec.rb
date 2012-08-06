@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 describe "check Edit tools" do
@@ -13,7 +12,7 @@ describe "check Edit tools" do
     @current_page.bold.should be_true
     @current_page.bold_element.click
     @current_page.article_text.should include "'''Bold text'''"
-    #checking Italics button 
+    #checking Italics button
     @current_page.article_text_element.send_keys :arrow_right, :arrow_right, :arrow_right, :arrow_right, :arrow_right
     @current_page.italic_element.click
     @current_page.article_text.should include "''Italic text''"
@@ -25,12 +24,6 @@ describe "check Edit tools" do
     @current_page.article_text_element.send_keys :arrow_right, :arrow_right, :arrow_right, :arrow_right, :arrow_right
     @current_page.signature_element.click
     @current_page.article_text.should include "--~~~~"
-    
-    
   end
 end
-
 end #describe
-    
-  
- 
