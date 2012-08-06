@@ -42,5 +42,14 @@ describe "Edit tools" do
         page.article_text.should include "--~~~~"
       end
     end
+    it "advanced tools are not visible until Advanced element is clicked" do
+      on(ProofreadPage).advanced_toolbar_element.present?.should == false
+    end
+    it "advanced tools are visible after clicking Advanced element" do
+      on(ProofreadPage) do |page|
+        page.advanced
+        page.advanced_toolbar_element.present?.should == true
+      end
+    end
   end #context
 end #describe

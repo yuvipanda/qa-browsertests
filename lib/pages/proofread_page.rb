@@ -17,6 +17,7 @@ class ProofreadPage
 
   #collapsible links display additional features
   link(:advanced, :text => 'Advanced')
+  div(:advanced_toolbar, :class => 'section-advanced')
   link(:level2, :text => 'Level 2')
   link(:level2, :text => 'Level 3')
   link(:level2, :text => 'Level 4')
