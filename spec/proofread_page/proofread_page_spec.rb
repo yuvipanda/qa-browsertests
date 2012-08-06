@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "check Edit tools" do
-  context "click Edit and exercise Edit tools" do
   it "should affect the display upon clicking each Edit tool" do
     visit_page(ProofreadPage)
     @current_page.text.should include "This page has not been proofread"
@@ -25,5 +24,4 @@ describe "check Edit tools" do
     @current_page.signature_element.click
     @current_page.article_text.should include "--~~~~"
   end
-end
 end #describe
