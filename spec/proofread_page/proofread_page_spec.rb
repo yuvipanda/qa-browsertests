@@ -1,27 +1,46 @@
 require 'spec_helper'
 
 describe "Edit tools" do
-  it "should affect the display upon clicking each Edit tool" do
-    visit_page(ProofreadPage)
-    @current_page.text.should include "This page has not been proofread"
-    @current_page.edit
-    @current_page.text.should include "Warning: You are not logged in"
-    @current_page.article_text.should be_true
-    #checking Bold button
-    @current_page.bold.should be_true
-    @current_page.bold_element.click
-    @current_page.article_text.should include "'''Bold text'''"
-    #checking Italics button
-    @current_page.article_text_element.send_keys :arrow_right, :arrow_right, :arrow_right, :arrow_right, :arrow_right
-    @current_page.italic_element.click
-    @current_page.article_text.should include "''Italic text''"
-    #checking Embedded file
-    @current_page.article_text_element.send_keys :arrow_right, :arrow_right, :arrow_right, :arrow_right, :arrow_right
-    @current_page.embedded_element.click
-    @current_page.article_text.should include "[[File:Example.jpg]]"
-    #check Signature and timestamp
-    @current_page.article_text_element.send_keys :arrow_right, :arrow_right, :arrow_right, :arrow_right, :arrow_right
-    @current_page.signature_element.click
-    @current_page.article_text.should include "--~~~~"
+  it "should display warning message if the page has not been proofread" do
+    visit(ProofreadPage).text.should include "This page has not been proofread"
   end
+  context "on ProofreadPage" do
+    before do
+      visit(ProofreadPage).edit
+      @browser.execute_script("window.onbeforeunload = null")
+    end
+    it "should display warning message if the user is not logged in" do
+      on(ProofreadPage).text.should include "Warning: You are not logged in"
+    end
+    it "should have editable text" do
+      on(ProofreadPage).article_text.should be_true
+    end
+    it "should have Bold element" do
+      on(ProofreadPage).bold.should be_true
+    end
+    it "Bold element should add text to the page" do
+      on(ProofreadPage) do |page|
+        page.bold_element.click
+        page.article_text.should include "'''Bold text'''"
+      end
+    end
+    it "Italic element should add text to the page" do
+      on(ProofreadPage) do |page|
+        page.italic_element.click
+        page.article_text.should include "''Italic text''"
+      end
+    end
+    it "Embedded element should add text to the page" do
+      on(ProofreadPage) do |page|
+        page.embedded_element.click
+        page.article_text.should include "[[File:Example.jpg]]"
+      end
+    end
+    it "Signature and timestamp element should add text to the page" do
+      on(ProofreadPage) do |page|
+        page.signature_element.click
+        page.article_text.should include "--~~~~"
+      end
+    end
+  end #context
 end #describe
