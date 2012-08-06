@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "check Edit tools" do
+describe "Edit tools" do
   it "should affect the display upon clicking each Edit tool" do
     visit_page(ProofreadPage)
     @current_page.text.should include "This page has not been proofread"
