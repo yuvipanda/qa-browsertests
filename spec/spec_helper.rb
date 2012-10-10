@@ -1,13 +1,13 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), ',,', 'lib'))
 
-require 'rspec'
-require 'rspec/expectations'
-require 'yaml'
-require 'watir-webdriver'
 require 'page-object'
 require 'page-object/page_factory'
 require 'require_all'
+require 'rspec'
+require 'rspec/expectations'
+require 'watir-webdriver'
+require 'yaml'
 
 require_all 'lib/pages'
 
