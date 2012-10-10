@@ -21,7 +21,8 @@
 
     gem install bundler --no-ri --no-rdoc
     bundle install
-    bundle exec rspec spec/bogus_page_spec.rb:5
+    bundle exec rake bogus
+
 --
 
-
+  - Post-build Actions > Add post-build action > Publish JUnit test result report > Test report XMLs: spec/reports/*.xml

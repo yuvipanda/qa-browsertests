@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem 'ci_reporter'
 gem 'json'
 gem 'page-object'
 gem 'rake'

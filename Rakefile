@@ -1,6 +1,11 @@
 require 'rubygems'
 require 'rspec/core/rake_task'
 
+require 'ci/reporter/rake/rspec' # ci_reporter needs this
+RSpec::Core::RakeTask.new(:bogus => ["ci:setup:rspec"]) do |spec|
+  spec.pattern = 'spec/bogus_page_spec.rb:5'
+end
+
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.ruby_opts = "-I lib:spec"
   spec.pattern = 'spec/**/*_spec.rb'
