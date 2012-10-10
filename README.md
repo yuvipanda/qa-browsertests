@@ -1,26 +1,11 @@
-potential architecture for browser testing at WMF
+# Potential architecture for browser testing at WMF
 
-## prerequisites ##
+Tested with Ruby 1.9.3p194 and RubyGems 1.8.24.
 
-* RubyGems version >= 1.3.6
+Install required RubyGems:
 
-        gem environment version
-        (sudo) gem update system
+    gem update --system
+    gem install bundler
+    bundle install
 
-* install [Bundle](http://gembundler.com/)
-
-        (sudo) gem install bundler
-
-## running ##
-
-    bundle
-    rake
-
-
-at the top directory.  Bundle will ensure you have all of the correct gems and the rake command will run the tests.
-
-## help for ruby novices ##
-
-* [Ruby](http://www.ruby-doc.org/docs/ProgrammingRuby/)
-* [Rspec](http://rubydoc.info/)
-* [Page Object Model, Ruby implementation](https://github.com/cheezy/page-object)
+Play the game with `bundle exec rake`.
