@@ -8,4 +8,4 @@ Install required RubyGems:
     gem install bundler
     bundle install
 
-Play the game with `bundle exec rake`.
+Run the tests with `bundle exec rake`.
