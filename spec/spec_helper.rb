@@ -11,15 +11,26 @@ require 'require_all'
 
 require_all 'lib/pages'
 
+def sauce_browser
+  caps = Selenium::WebDriver::Remote::Capabilities.firefox
+  caps.platform = 'Linux'
+  caps.version = '15'
+
+  config = YAML.load_file('config/config.yml')
+  Watir::Browser.new(
+    :remote,
+    :url => "http://#{config['username']}:#{config['key']}@ondemand.saucelabs.com:80/wd/hub",
+    :desired_capabilities => caps)
+end
+
 RSpec.configure do |config|
   config.include PageObject::PageFactory
 
   config.before(:all) do
-    @browser = Watir::Browser.new :firefox
+    @browser = sauce_browser
   end
 
   config.after(:all) do
     @browser.close
   end
-
 end
