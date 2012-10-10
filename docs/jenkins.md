@@ -11,3 +11,17 @@
 - Jenkins > Job > Configure
   - Project name: wmf
   - Source Code Management > Git > Repositories > Repository URL: git@github.com:zeljkofilipin/Page-Object-WMF-spike.git
+  - Build > Add build step > Execute shell:
+
+--
+
+    curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/use-ruby
+    RUBY_VERSION=1.9.3-p194 \
+      source ./use-ruby
+
+    gem install bundler --no-ri --no-rdoc
+    bundle install
+    bundle exec rspec spec/bogus_page_spec.rb:5
+--
+
+
