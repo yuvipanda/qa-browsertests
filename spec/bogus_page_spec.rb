@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 describe "Navigate to bogus page" do
@@ -9,9 +8,9 @@ describe "Navigate to bogus page" do
       @current_page.text.should include "Other reasons this message may be displayed"
     end
   end
-  
+
   context "follow Create New Article search links" do
-    it "should follow all the defined links" do 
+    it "should follow all the defined links" do
       visit_page(BogusPage)
       @current_page.search.should be_empty
       @current_page.text.should include "Search results"
@@ -20,5 +19,5 @@ describe "Navigate to bogus page" do
       @current_page.text.should include "Search results"
     end
   end
-  
+
 end
