@@ -8,9 +8,10 @@ describe "article does not exist" do
     end
   end
   it "'search for page' link should open 'search for page' page" do
-    visit_page(BogusPage) do |page|
-      page.search.should be_empty
-      page.text.should include "Search results"
+    visit_page(BogusPage).search_for_page
+    on(SearchResultsPage) do |page|
+      page.title.should == "Search results"
+      page.search.should == "Bogus page"
     end
   end
   it "'search for string' link should open 'search for string' page" do
