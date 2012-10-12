@@ -1,18 +1,18 @@
 require 'spec_helper'
 
 describe "article does not exist" do
-    it "should say that the article does not exist" do
-      visit_page(BogusPage) do |page|
-        page.text.should include "Wikipedia does not have an article with this exact name"
-        page.text.should include "Other reasons this message may be displayed"
-      end
+  it "should say that the article does not exist" do
+    visit_page(BogusPage) do |page|
+      page.text.should include "Wikipedia does not have an article with this exact name"
+      page.text.should include "Other reasons this message may be displayed"
     end
-    it "should follow all the defined links" do
-      visit_page(BogusPage)
-      @current_page.search.should be_empty
-      @current_page.text.should include "Search results"
-      visit_page(BogusPage)
-      @current_page.search2.should be_empty
-      @current_page.text.should include "Search results"
-    end
+  end
+  it "should follow all the defined links" do
+    visit_page(BogusPage)
+    @current_page.search.should be_empty
+    @current_page.text.should include "Search results"
+    visit_page(BogusPage)
+    @current_page.search2.should be_empty
+    @current_page.text.should include "Search results"
+  end
 end
