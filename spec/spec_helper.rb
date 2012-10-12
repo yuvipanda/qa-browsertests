@@ -11,6 +11,23 @@ require 'yaml'
 
 require_all 'lib/pages'
 
+def browser(environment)
+  if environment == :cloudbees
+    sauce_browser
+  else
+    local_browser
+  end
+end
+def environment(folder)
+  if folder.match Regexp.escape("/scratch/jenkins/workspace/")
+    :cloudbees
+  else
+    :local
+  end
+end
+def local_browser
+  Watir::Browser.new :firefox
+end
 def sauce_browser
   caps = Selenium::WebDriver::Remote::Capabilities.firefox
   caps.platform = 'Linux'
@@ -27,7 +44,8 @@ RSpec.configure do |config|
   config.include PageObject::PageFactory
 
   config.before(:all) do
-    @browser = sauce_browser
+    folder = Dir.pwd
+    @browser = browser(environment(folder))
   end
 
   config.after(:all) do
