@@ -21,7 +21,7 @@
 
     gem install bundler --no-ri --no-rdoc
     bundle install
-    bundle exec rake bogus
+    bundle exec rake
 
 --
 

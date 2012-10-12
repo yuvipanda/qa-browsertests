@@ -32,4 +32,4 @@ RSpec::Core::RakeTask.new(:upload_wizard_spec) do |spec|
   spec.pattern = 'spec/upload_wizard/*_spec.rb'
 end
 
-task :default => :spec
+task :default => :bogus
