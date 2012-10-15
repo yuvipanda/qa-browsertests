@@ -5,5 +5,5 @@ class BogusPage
   page_url 'https://en.wikipedia.org/wiki/Bogus_page'
 
   a(:search_for_page, :text => 'search for Bogus page in Wikipedia')
-  a(:search2, :text => 'Search for "Bogus page"')
+  a(:search_for_string, :text => 'Search for "Bogus page"')
 end

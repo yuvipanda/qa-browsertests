@@ -14,10 +14,11 @@ describe "article does not exist" do
       page.search.should == "Bogus page"
     end
   end
-  it "'search for string' link should open 'search for string' page" do
-    visit_page(BogusPage) do |page|
-      page.search2.should be_empty
-      page.text.should include "Search results"
+  it "'search for string' link should open search results page" do
+    visit_page(BogusPage).search_for_string
+    on(SearchResultsPage) do |page|
+      page.title.should == "Search results"
+      page.search.should == "Bogus page"
     end
   end
 end
