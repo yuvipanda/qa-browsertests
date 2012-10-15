@@ -7,7 +7,7 @@ describe "article does not exist" do
       page.text.should include "Other reasons this message may be displayed"
     end
   end
-  it "'search for page' link should open 'search for page' page" do
+  it "'search for page' link should open search results page" do
     visit_page(BogusPage).search_for_page
     on(SearchResultsPage) do |page|
       page.title.should == "Search results"
