@@ -33,7 +33,7 @@ def sauce_browser
   caps.platform = 'Linux'
   caps.version = '15'
 
-  config = YAML.load_file('config/config.yml')
+  config = YAML.load_file('config/secret.yml')
   Watir::Browser.new(
     :remote,
     :url => "http://#{config['username']}:#{config['key']}@ondemand.saucelabs.com:80/wd/hub",
