@@ -1,7 +1,2 @@
-tests:
-  username: User 
-  password: Pass 
-  site_address: https://commons.wikimedia.org/wiki/
-  files:
-    never_uploaded: /path/to/first/unique/file
-    another_never_uploaded: /path/to/second/unique/file
+base_url: https://en.wikipedia.org/wiki/
+wmflabs_base_url: http://en.wikipedia.beta.wmflabs.org/wiki/
