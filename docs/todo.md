@@ -1,2 +1,3 @@
 - remove hard coded urls
 - implement: create pdf, download it, parse it
+- make sure all tests run in jenkins
