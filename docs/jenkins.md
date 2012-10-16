@@ -22,7 +22,8 @@
 
 --
 
-    export BROWSER_NAME=firefox
+    # for the list of supported browsers see config/config.yml
+    export BROWSER_NAME=(browser)
 
     curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/use-ruby
     RUBY_VERSION=1.9.3-p194 \
