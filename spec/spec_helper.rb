@@ -29,9 +29,11 @@ def local_browser
   Watir::Browser.new :firefox
 end
 def sauce_browser
-  caps = Selenium::WebDriver::Remote::Capabilities.firefox
-  caps.platform = 'Linux'
-  caps.version = '15'
+  config = YAML.load_file('config/config.yml')
+  browser = 'firefox'
+  caps = Selenium::WebDriver::Remote::Capabilities.send(browser)
+  caps.platform = config[browser]['platform']
+  caps.version = config[browser]['version']
 
   secret = YAML.load_file('config/secret.yml')
   Watir::Browser.new(

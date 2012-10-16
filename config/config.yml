@@ -3,3 +3,7 @@ base_url:
   test: http://test.wikipedia.org/wiki/
   test2: http://test2.wikipedia.org/wiki/
   wmflabs: http://en.wikipedia.beta.wmflabs.org/wiki/
+
+firefox:
+  platform: Linux
+  version: 15
