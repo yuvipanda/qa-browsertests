@@ -1,2 +1,4 @@
-base_url: https://en.wikipedia.org/wiki/
-wmflabs_base_url: http://en.wikipedia.beta.wmflabs.org/wiki/
+wikipedia: https://en.wikipedia.org/wiki/
+test: http://test.wikipedia.org/wiki/
+base_url: http://test2.wikipedia.org/wiki/
+wmflabs: http://en.wikipedia.beta.wmflabs.org/wiki/
