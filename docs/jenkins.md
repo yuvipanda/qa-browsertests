@@ -22,6 +22,8 @@
 
 --
 
+    export BROWSER_NAME=firefox
+
     curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/use-ruby
     RUBY_VERSION=1.9.3-p194 \
       source ./use-ruby
