@@ -3,8 +3,7 @@ require 'spec_helper'
 describe "article does not exist" do
   it "there should be text that article does not exist" do
     visit_page(BogusPage) do |page|
-      page.text.should include "Wikipedia does not have an article with this exact name"
-      page.text.should include "Other reasons this message may be displayed"
+      page.text.should include "There is currently no text in this page."
     end
   end
   it "'search for page' link should open search results page" do
