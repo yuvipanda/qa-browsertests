@@ -4,7 +4,7 @@ class BogusPage
   if ENV['BROWSER_NAME'] == "android" or  ENV['BROWSER_NAME'] == "iphone"
     site = "testm"
   else
-    site = "test2"
+    site = "test"
   end
 
   config = YAML.load_file('config/config.yml')
