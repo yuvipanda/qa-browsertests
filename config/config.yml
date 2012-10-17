@@ -1,6 +1,7 @@
 base_url:
   wikipedia: https://en.wikipedia.org/wiki/
   test: http://test.wikipedia.org/wiki/
+  testm: http://test.m.wikipedia.org/w/index.php?title=
   test2: http://test2.wikipedia.org/wiki/
   wmflabs: http://en.wikipedia.beta.wmflabs.org/wiki/
 
