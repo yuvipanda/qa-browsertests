@@ -10,5 +10,5 @@ class BogusPage
   config = YAML.load_file('config/config.yml')
   page_url "#{config['base_url'][site]}Bogus_page"
 
-  a(:search_for_page, :text => 'search for this page title')
+  a(:search_for_page, :text => 'search for Bogus page in Wikipedia')
 end
