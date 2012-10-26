@@ -2,8 +2,8 @@
 
 ## GitHub
 
-- Jenkins > Manage Jenkins > Manage Plugins > Configure System > CloudBees DEV@cloud Authorization > CloudBees Public Key
-- https://github.com/settings/ssh > Add SSH key > CloudBees Public Key
+- Jenkins > Manage Jenkins > Manage Plugins > Configure System > CloudBees DEV@cloud Authorization > CloudBees Public Key > copy
+- https://gerrit.wikimedia.org/r/#/settings/ssh-keys > Add Key ... > CloudBees Public Key > paste > Add
 
 ## Plugins
 
@@ -17,7 +17,7 @@
   - OK
 - Jenkins > Job > Configure
   - Project name: wmf
-  - Source Code Management > Git > Repositories > Repository URL: git@github.com:zeljkofilipin/Page-Object-WMF-spike.git
+  - Source Code Management > Git > Repositories > Repository URL: ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git
   - Build > Add build step > Execute shell:
 
 --
