@@ -2,7 +2,7 @@
 
 ## Environment
 
-- Firefox 15
+- Firefox 16
 - Ruby 1.9.3p286 or 1.9.3p194
   - RubyGems 1.8.24
 

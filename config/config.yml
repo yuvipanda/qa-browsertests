@@ -11,7 +11,7 @@ android:
 
 firefox:
   platform: Linux
-  version: 15
+  version: 16
 
 ipad:
   platform: Mac 10.6
