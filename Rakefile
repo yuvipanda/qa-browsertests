@@ -1,3 +1,9 @@
+task :default => :cucumber
+
+# cucumber needs this
+require "cucumber/rake/task"
+Cucumber::Rake::Task.new(:cucumber, "Run all cucumber features.")
+
 require 'rspec/core/rake_task'
 
 require 'ci/reporter/rake/rspec' # ci_reporter needs this
@@ -30,5 +36,3 @@ RSpec::Core::RakeTask.new(:upload_wizard_spec) do |spec|
   spec.ruby_opts = "-I lib:spec"
   spec.pattern = 'spec/upload_wizard/*_spec.rb'
 end
-
-task :default => :bogus
