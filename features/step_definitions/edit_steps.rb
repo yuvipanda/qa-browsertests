@@ -7,5 +7,6 @@ When /^I click edit$/ do
 end
 
 Then /^edit page should open$/ do
+  @browser.url.should match "#{Regexp.escape('&action=edit')}$"
   on(EditPage).save_element.should exist
 end
