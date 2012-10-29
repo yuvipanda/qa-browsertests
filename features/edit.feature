@@ -5,3 +5,4 @@ Feature: Edit
     When I click edit
     Then edit page should open
       And Save button should be there
+      And My sandbox link should be there
