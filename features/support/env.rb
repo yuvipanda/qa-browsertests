@@ -15,8 +15,8 @@ def browser(environment)
     local_browser
   end
 end
-def environment(folder)
-  if folder.match Regexp.escape("/scratch/jenkins/workspace/")
+def environment
+  if ENV['ENVIRONMENT'] == "cloudbees"
     :cloudbees
   else
     :local
@@ -44,8 +44,7 @@ def sauce_browser
     :desired_capabilities => caps)
 end
 
-folder = Dir.pwd
-browser = browser(environment(folder))
+browser = browser(environment)
 
 Before do |scenario|
   @browser = browser
