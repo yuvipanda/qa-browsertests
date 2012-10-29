@@ -13,6 +13,10 @@ firefox:
   platform: Linux
   version: 16
 
+internet_explorer:
+  platform: Windows 2012
+  version: 10
+
 ipad:
   platform: Mac 10.6
   version: 5
