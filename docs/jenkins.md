@@ -16,7 +16,7 @@
   - Build a free-style software project
   - OK
 - Jenkins > Job > Configure
-  - Project name: wmf
+  - Project name: (name)
   - Source Code Management > Git > Repositories > Repository URL: ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git
   - Build > Add build step > Execute shell:
 
