@@ -4,3 +4,4 @@ Feature: Edit
     Given I am at a random page
     When I click edit
     Then edit page should open
+      And Save button should be there
