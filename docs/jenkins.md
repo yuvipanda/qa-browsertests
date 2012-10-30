@@ -29,6 +29,7 @@ or
 
 --
 
+    chrome
     firefox
     internet_explorer_6
     internet_explorer_7

@@ -10,6 +10,11 @@ android:
   platform: Linux
   version: 4
 
+chrome:
+  name: chrome
+  platform: Linux
+  version:
+
 firefox:
   name: firefox
   platform: Linux
