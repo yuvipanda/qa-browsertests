@@ -7,6 +7,7 @@ When /^I click edit$/ do
 end
 
 Then /^edit page should open$/ do
+  on(EditPage).my_sandbox_element.when_present
   @browser.url.should match "#{Regexp.escape('&action=edit')}$"
 end
 Then /^My sandbox link should be there$/ do
