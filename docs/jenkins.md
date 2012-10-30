@@ -55,4 +55,4 @@ or
 
 --
 
-  - Post-build Actions > Add post-build action > Publish JUnit test result report > Test report XMLs: spec/reports/*.xml
+  - Post-build Actions > Add post-build action > Publish JUnit test result report > Test report XMLs: reports/junit/*.xml
