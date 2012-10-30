@@ -1,13 +1,18 @@
 # Jenkins setup
 
-## GitHub
+## Git
 
-- Jenkins > Manage Jenkins > Manage Plugins > Configure System > CloudBees DEV@cloud Authorization > CloudBees Public Key > copy
-- https://gerrit.wikimedia.org/r/#/settings/ssh-keys > Add Key ... > CloudBees Public Key > paste > Add
+- Jenkins > Manage Jenkins > Configure System
+
+or
+
+- Jenkins > (job) > Configure
+  - CloudBees DEV@cloud Authorization > CloudBees Public Key > copy
+- https://gerrit.wikimedia.org/r/#/settings/ssh-keys > Add Key ... > paste > Add
 
 ## Plugins
 
-- Jenkins > Manage Jenkins > Manage Plugins > Available > ChuckNorris Plugin, Jenkins GIT plugin, Green Balls
+- Jenkins > Manage Jenkins > Manage Plugins > Available > ChuckNorris Plugin, Green Balls
 
 # Job
 
