@@ -26,16 +26,12 @@ def local_browser
   Watir::Browser.new :firefox
 end
 def sauce_browser
-  if ENV['BROWSER_NAME']
-    browser = ENV['BROWSER_NAME']
-  else
-    browser = 'firefox'
-  end
-
   config = YAML.load_file('config/config.yml')
-  caps = Selenium::WebDriver::Remote::Capabilities.send(browser)
-  caps.platform = config[browser]['platform']
-  caps.version = config[browser]['version']
+  browser_label = config[ENV['BROWSER_LABEL']]
+
+  caps = Selenium::WebDriver::Remote::Capabilities.send(browser_label['name'])
+  caps.platform = browser_label['platform']
+  caps.version = browser_label['version']
 
   secret = YAML.load_file('config/secret.yml')
   Watir::Browser.new(
