@@ -13,17 +13,30 @@
 
 - Jenkins > New Job
   - Job name: (name)
-  - Build a free-style software project
+  - Build multi-configuration project
   - OK
 - Jenkins > Job > Configure
   - Project name: (name)
   - Source Code Management > Git > Repositories > Repository URL: ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git
+  - Configuration Matrix > Add axis > User-defined Axis
+    - Name: BROWSER_LABEL
+    - Values:
+
+--
+
+    firefox
+    internet_explorer_6
+    internet_explorer_7
+    internet_explorer_8
+    internet_explorer_9
+    internet_explorer_10
+
+--
+
   - Build > Add build step > Execute shell:
 
 --
 
-    # for the list of supported browsers see config/config.yml
-    export BROWSER_NAME=(browser)
     export ENVIRONMENT=cloudbees
 
     curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/use-ruby
