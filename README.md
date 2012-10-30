@@ -20,6 +20,6 @@ Code is pushed to https://gerrit.wikimedia.org/r/gitweb?p=qa/browsertests.git;a=
 
 GitHub mirror is at https://github.com/zeljkofilipin/browsertests
 
-Jenkins is hosted at https://zeljkofilipin.ci.cloudbees.com/
+Jenkins is hosted at https://wmf.ci.cloudbees.com/
 
 Tests are running at http://saucelabs.com/
