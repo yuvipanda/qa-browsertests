@@ -43,6 +43,7 @@ or
 
 --
 
+    export BASE_URL=test2
     export ENVIRONMENT=cloudbees
 
     curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/use-ruby
