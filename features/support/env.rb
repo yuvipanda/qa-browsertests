@@ -8,6 +8,8 @@ require "yaml"
 
 World(PageObject::PageFactory)
 
+SECRET = YAML.load_file('config/secret.yml')
+
 def browser(environment)
   if environment == :cloudbees
     sauce_browser
@@ -33,19 +35,20 @@ def sauce_browser
   caps.platform = browser_label['platform']
   caps.version = browser_label['version']
 
-  secret = YAML.load_file('config/secret.yml')
   Watir::Browser.new(
     :remote,
-    :url => "http://#{secret['username']}:#{secret['key']}@ondemand.saucelabs.com:80/wd/hub",
+    :url => "http://#{SECRET['username']}:#{SECRET['key']}@ondemand.saucelabs.com:80/wd/hub",
     :desired_capabilities => caps)
 end
 
-browser = browser(environment)
-
 Before do |scenario|
-  @browser = browser
+  @browser = browser(environment)
 end
 
-at_exit do
-  browser.close
+After do |scenario|
+  if environment == :cloudbees
+    session_id = @browser.driver.instance_variable_get(:@bridge).session_id
+    %x{curl -H "Content-Type:text/json" -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{SECRET['username']}:#{SECRET['key']}@saucelabs.com/rest/v1/#{SECRET['username']}/jobs/#{session_id}}
+  end
+  @browser.close
 end
