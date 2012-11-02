@@ -23,6 +23,7 @@ or
 - Jenkins > Job > Configure
   - Project name: (name)
   - Source Code Management > Git > Repositories > Repository URL: ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git
+  - Build Triggers > Build periodically	> Schedule: 0 20,23 * * *
   - Configuration Matrix > Add axis > User-defined Axis
     - Name: BROWSER_LABEL
     - Values:
