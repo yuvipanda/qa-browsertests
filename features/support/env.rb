@@ -34,7 +34,7 @@ def sauce_browser(test_name)
   caps = Selenium::WebDriver::Remote::Capabilities.send(browser_label['name'])
   caps.platform = browser_label['platform']
   caps.version = browser_label['version']
-  caps[:name] = "#{ENV['JOB_NAME']}##{ENV['BUILD_NUMBER']} - #{test_name}"
+  caps[:name] = "#{test_name} #{ENV['JOB_NAME']}##{ENV['BUILD_NUMBER']}"
 
   Watir::Browser.new(
     :remote,
