@@ -51,12 +51,10 @@ SECRET = YAML.load_file('config/secret.yml') if environment == :cloudbees
 
 Before do |scenario|
   @browser = browser(environment, test_name(scenario))
+  $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
 end
 
 After do |scenario|
-  if environment == :cloudbees
-    $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
-    %x{curl -H "Content-Type:text/json" -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{SECRET['username']}:#{SECRET['key']}@saucelabs.com/rest/v1/#{SECRET['username']}/jobs/#{$session_id}}
-  end
+  %x{curl -H "Content-Type:text/json" -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{SECRET['username']}:#{SECRET['key']}@saucelabs.com/rest/v1/#{SECRET['username']}/jobs/#{$session_id}} if environment == :cloudbees
   @browser.close
 end
