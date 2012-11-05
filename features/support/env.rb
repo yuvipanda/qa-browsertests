@@ -8,8 +8,6 @@ require "yaml"
 
 World(PageObject::PageFactory)
 
-SECRET = YAML.load_file('config/secret.yml')
-
 def browser(environment, test_name)
   if environment == :cloudbees
     sauce_browser(test_name)
@@ -48,6 +46,8 @@ def test_name(scenario)
     "#{scenario.scenario_outline.feature.name}: #{scenario.scenario_outline.name}: #{scenario.name}"
   end
 end
+
+SECRET = YAML.load_file('config/secret.yml') if environment == :cloudbees
 
 Before do |scenario|
   @browser = browser(environment, test_name(scenario))
