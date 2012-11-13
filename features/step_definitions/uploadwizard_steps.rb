@@ -128,7 +128,7 @@ And /^Title Description Location can be set$/  do
         @page.description_field_element.send_keys("Automated testing created this description")
         # LANGUAGE SELECT CONTENT VARIES BY ENV @page.language.should include "English"
         @page.date_created_element.send_keys("Automated test")
-        @page.categories.should be_true
+        @page.categories
         @page.add_categories_element.send_keys("Automated test")
         @page.latitude_element.click
         @page.latitude_element.send_keys("Automated test")
