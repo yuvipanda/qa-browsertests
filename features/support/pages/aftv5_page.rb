@@ -9,8 +9,8 @@ class AftV5Page
   link(:back_to_yesno, :link_text => "Back to step 1")
   link(:terms, :href => '//wikimediafoundation.org/wiki/Feedback_privacy_statement', :link_text => 'terms')
   link(:helpful_feedback, :href => 'http://en.wikipedia.org/wiki/Wikipedia:Feedback_guidelines', :link_text => 'helpful feedback')
-  button(:post_feedback, :id => articleFeedbackv5-submit-btn
-  link(:feedback_page, :link_text => 'feedback page'
+  button(:post_feedback, :id => articleFeedbackv5-submit-btn)
+  link(:feedback_page, :link_text => 'feedback page')
   * ANONS GET CREATE AN ACCOUNT/LOGIN CTA HERE
   * FOLLOWING feedback_page LINK GOES TO AFT FOR THE RANDOM ARTICLE
   link(:all_comments, :link_text => /All comments/)
