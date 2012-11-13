@@ -48,7 +48,7 @@ or
     export ENVIRONMENT=cloudbees
 
     curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/use-ruby
-    RUBY_VERSION=1.9.3-p194 \
+    RUBY_VERSION=1.9.3-p286 \
       source ./use-ruby
 
     gem install bundler --no-ri --no-rdoc
