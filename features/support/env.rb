@@ -52,6 +52,7 @@ SECRET = YAML.load_file('config/secret.yml') if environment == :cloudbees
 Before do |scenario|
   @browser = browser(environment, test_name(scenario))
   $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
+  puts "#{test_name(scenario)} http://saucelabs.com/jobs/#{$session_id}" if environment == :cloudbees
 end
 
 After do |scenario|
