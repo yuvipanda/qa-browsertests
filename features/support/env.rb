@@ -47,7 +47,7 @@ def test_name(scenario)
   end
 end
 
-SECRET = YAML.load_file('config/secret.yml') if environment == :cloudbees
+SECRET = YAML.load_file('config/secret.yml')
 
 Before do |scenario|
   @browser = browser(environment, test_name(scenario))
