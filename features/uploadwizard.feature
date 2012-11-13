@@ -1,4 +1,10 @@
-Feature: Uploadwizard
+Feature: UploadWizard
+
+  Scenario: Navigate to UploadWizard
+    Given I am logged in
+    When I navigate to Upload Wizard
+    Then Learn page should appear
+      And Skip this step in the future checkbox should be there
 
    Scenario: Run UploadWizard
       Given Login is required to upload

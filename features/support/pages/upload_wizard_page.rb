@@ -1,7 +1,19 @@
 
 class UploadWizardPage
   include PageObject
-  page_url 'https://test2.wikipedia.org/wiki/Special:UploadWizard'
+
+  def self.url
+    if ENV['BASE_URL']
+      base_url = ENV['BASE_URL']
+    else
+      base_url = "test2"
+    end
+
+    config = YAML.load_file('config/config.yml')
+    "#{config['base_url'][base_url]}Special:UploadWizard"
+  end
+  page_url url
+
   link(:logged_in, :link_text => 'logged in')
   div(:tutorial_map, :id => 'mwe-upwiz-tutorial')
   checkbox(:skip_radio, :id => 'mwe-upwiz-skip')

@@ -1,3 +1,9 @@
+Given /^I am logged in$/ do
+  config = YAML.load_file('config/config.yml')
+  username = config['tests']['username']
+  password = SECRET['uw_password']
+  visit(LoginPage).login_with(username, password)
+end
 Given /^Login is required to upload$/ do
       visit_page(UploadWizardPage)
       @current_page.logged_in
@@ -13,7 +19,12 @@ When /^I navigate to Upload Wizard$/ do
       @current_page.text.include? "Thanks for using our new upload tool!Help with translations"
       @current_page.tutorial_map.should be_true
   end
- 
+Then /^Learn page should appear$/ do
+  @browser.url.should == on(UploadWizardPage).class.url
+end
+Then /^(.+) checkbox should be there$/ do |_|
+  on(LearnPage).skip_element.should exist
+end
 Then /^the learn screen should appear$/ do
       on_page(UploadWizardPage) do |page|
         page.skip_radio_element.when_visible
@@ -40,7 +51,7 @@ And /^I should be able to upload a file and pick copyright info$/ do
         end
         @page.continue_button
         #own work
-        @page.wait_until(5) do 
+        @page.wait_until(5) do
           @page.text.include? "This site requires you to provide copyright information for this work, to make sure everyone can legally reuse it"
         end
         @page.select_own_work_button
@@ -173,7 +184,7 @@ And /^I can upload two more files$/ do
 
         @page.continue_button
         #own work
-        @page.wait_until(5) do 
+        @page.wait_until(5) do
           @page.text.include? "This site requires you to provide copyright information for these works, to make sure everyone can legally reuse them"
         end
         @page.select_own_work_button
