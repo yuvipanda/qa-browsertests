@@ -7,12 +7,12 @@ base_url:
   wmflabs: http://en.wikipedia.beta.wmflabs.org/wiki/
 
 tests:
-  username: uploadwizardtest 
+  username: uploadwizardtest
   site_address: https://test2.wikimedia.org/wiki/
   files:
     never_uploaded: /uwthumb1.png
     another_never_uploaded: /uwthumb2.png
- 
+
 android:
   name: android
   platform: Linux
