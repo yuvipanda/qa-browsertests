@@ -11,8 +11,8 @@ class AftV5Page
   link(:helpful_feedback, :href => 'http://en.wikipedia.org/wiki/Wikipedia:Feedback_guidelines', :link_text => 'helpful feedback')
   button(:post_feedback, :id => articleFeedbackv5-submit-btn)
   link(:feedback_page, :link_text => 'feedback page')
-  * ANONS GET CREATE AN ACCOUNT/LOGIN CTA HERE
-  * FOLLOWING feedback_page LINK GOES TO AFT FOR THE RANDOM ARTICLE
+  # ANONS GET CREATE AN ACCOUNT/LOGIN CTA HERE
+  # FOLLOWING feedback_page LINK GOES TO AFT FOR THE RANDOM ARTICLE
   link(:all_comments, :link_text => /All comments/)
   link(:most_relevant, :link_text => /Most relevant/) 
   select_list(:sort_by, :id => 'articleFeedbackv5-sort-select')
