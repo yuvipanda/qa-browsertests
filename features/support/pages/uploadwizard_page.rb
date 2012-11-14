@@ -16,7 +16,7 @@ class UploadWizardPage
   link(:logged_in, :link_text => 'logged in')
   div(:tutorial_map, :id => 'mwe-upwiz-tutorial')
   checkbox(:skip_radio, :id => 'mwe-upwiz-skip')
-  span(:next, :class => 'ui-button-text')
+  span(:next, text: 'Next')
   file_field(:select_file, :name => 'file')
   #button(:continue_button, :class => 'mwe-upwiz-button-next ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only')
   button(:continue_button, :xpath => '//div[2]/div[2]/div/button')

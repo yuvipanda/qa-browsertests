@@ -6,6 +6,13 @@ Feature: UploadWizard
     Then Learn page should appear
       And Skip this step in the future checkbox should be there
 
+  Scenario: Navigate to Upload page
+    Given I am logged in
+    When I navigate to Upload Wizard
+      And I click Next button
+    Then Upload page should appear
+      And Select a media file to donate button should be there
+
   Scenario: Run UploadWizard
     Given Login is required to upload
     When I navigate to Upload Wizard

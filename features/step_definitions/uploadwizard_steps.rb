@@ -14,6 +14,9 @@ Given /^Login is required to upload$/ do
   on_page(LoginPage).login_with(username, password)
 end
 
+When /^I click Next button$/ do
+  on(UploadWizardPage).next_element.click
+end
 When /^I navigate to Upload Wizard$/ do
   visit_page(UploadWizardPage)
   @current_page.text.include? "Thanks for using our new upload tool!Help with translations"
@@ -25,6 +28,12 @@ Then /^Learn page should appear$/ do
 end
 Then /^(.+) checkbox should be there$/ do |_|
   on(LearnPage).skip_element.should exist
+end
+Then /^Upload page should appear$/ do
+  @browser.url.should == on(UploadPage).class.url
+end
+Then /^(.+) button should be there$/ do |_|
+  on(UploadPage).select_file_element.should exist
 end
 Then /^the learn screen should appear$/ do
   on_page(UploadWizardPage) do |page|
@@ -161,7 +170,6 @@ And /^I can navigate back to UW$/ do
     newpage.next_element.click
   end
 end
-
 And /^I can upload two more files$/ do
   on_page(UploadWizardPage) do |arg|
     @page = arg
