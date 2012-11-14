@@ -17,6 +17,10 @@ class LoginPage
   link(:password_strength, :link_text => "password strength")
   div(:feedback, class: "errorbox")
 
+  def logged_in_as_element
+    @browser.div(id: "mw-content-text").p.b
+  end
+
   def login_with(username, password)
     self.username = username
     self.password = password
