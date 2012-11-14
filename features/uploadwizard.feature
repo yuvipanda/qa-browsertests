@@ -1,6 +1,6 @@
 Feature: UploadWizard
 
-  Scenario: Navigate to UploadWizard
+  Scenario: Navigate to Learn page
     Given I am logged in
     When I navigate to Upload Wizard
     Then Learn page should appear
