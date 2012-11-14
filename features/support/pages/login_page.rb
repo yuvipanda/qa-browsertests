@@ -15,6 +15,7 @@ class LoginPage
   button(:login, :id => 'wpLoginAttempt')
   link(:phishing, :link_text => "phishing")
   link(:password_strength, :link_text => "password strength")
+  div(:feedback, class: "errorbox")
 
   def login_with(username, password)
     self.username = username
