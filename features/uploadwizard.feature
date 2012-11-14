@@ -13,6 +13,15 @@ Feature: UploadWizard
     Then Upload page should appear
       And Select a media file to donate button should be there
 
+  Scenario: Navigate to Release rights page
+    Given I am logged in
+    When I navigate to Upload Wizard
+      And I click Next button
+      And upload file image.png
+      And click button Continue
+    Then Release rights page should open
+      And Next button should be there
+
   Scenario: Run UploadWizard
     Given Login is required to upload
     When I navigate to Upload Wizard

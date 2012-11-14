@@ -14,6 +14,9 @@ Given /^Login is required to upload$/ do
   on_page(LoginPage).login_with(username, password)
 end
 
+When /^click button Continue$/ do
+  on(UploadPage).continue_element.when_present.click
+end
 When /^I click Next button$/ do
   on(UploadWizardPage).next_element.click
 end
@@ -21,6 +24,12 @@ When /^I navigate to Upload Wizard$/ do
   visit_page(UploadWizardPage)
   @current_page.text.include? "Thanks for using our new upload tool!Help with translations"
   @current_page.tutorial_map.should be_true
+end
+When /^upload file (.+)$/ do |file_name|
+  require "chunky_png"
+  ChunkyPNG::Image.new(16, 16).save file_name
+  path = Dir.pwd + "/" + file_name
+  on(UploadPage).select_file = path
 end
 
 Then /^Learn page should appear$/ do
@@ -210,4 +219,10 @@ And /^I can upload two more files$/ do
 #    @page.copymeta.should be_true
 #    @page.text.should include 'Copy title'
   end
+end
+Then /^Release rights page should open$/ do
+  @browser.url.should == on(ReleaseRightsPage).class.url
+end
+Then /^Next button should be there$/ do
+  on(ReleaseRightsPage).next_element.should be_present
 end

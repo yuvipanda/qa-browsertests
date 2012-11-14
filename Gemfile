@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem 'chunky_png'
 gem 'ci_reporter'
 gem 'cucumber'
 gem 'json'

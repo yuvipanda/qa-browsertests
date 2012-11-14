@@ -1,4 +1,4 @@
-class UploadPage
+class ReleaseRightsPage
   include PageObject
 
   def self.url
@@ -13,6 +13,8 @@ class UploadPage
   end
   page_url url
 
-  file_field(:select_file, name: "file")
-  span(:continue, text: "Continue")
+  div(:next_parent, id: "mwe-upwiz-stepdiv-deeds")
+  span(:next) do |page|
+    page.next_parent_element.span(text: 'Next')
+  end
 end
