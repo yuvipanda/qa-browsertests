@@ -32,7 +32,7 @@ end
 Then /^Upload page should appear$/ do
   @browser.url.should == on(UploadPage).class.url
 end
-Then /^(.+) button should be there$/ do |_|
+Then /^Select a media file to donate button should be there$/ do
   on(UploadPage).select_file_element.should exist
 end
 Then /^the learn screen should appear$/ do
