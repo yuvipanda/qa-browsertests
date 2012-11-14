@@ -2,6 +2,12 @@ Given /^I am at Log in page$/ do
   visit(LoginPage)
 end
 
+When /^Log in with valid credentials$/ do
+  config = YAML.load_file('config/config.yml')
+  username = config['tests']['username']
+  password = SECRET['uw_password']
+  on(LoginPage).login_with(username, password)
+end
 When /^I log in without entering credentials$/ do
   on(LoginPage).login_with("", "")
 end
@@ -14,4 +20,7 @@ Then /^Log in page should open$/ do
 end
 Then /^feedback should be (.+)$/ do |feedback|
   on(LoginPage).feedback.should match feedback
+end
+Then /^there should be text (.+)$/ do |text|
+  on(LoginPage).logged_in_as_element.text.should match text
 end
