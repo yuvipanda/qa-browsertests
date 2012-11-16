@@ -56,14 +56,14 @@ def test_name(scenario)
 end
 
 config = YAML.load_file('config/config.yml')
-username = config['test2_username']
+mediawiki_username = config['mediawiki_username']
 
 SECRET = YAML.load_file('config/secret.yml')
-password = SECRET['test2_password']
+mediawiki_password = SECRET['mediawiki_password']
 
 Before do |scenario|
-  @username = username
-  @password = password
+  @mediawiki_username = mediawiki_username
+  @mediawiki_password = mediawiki_password
   @browser = browser(environment, test_name(scenario))
   $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
 end

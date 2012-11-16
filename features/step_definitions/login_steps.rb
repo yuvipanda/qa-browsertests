@@ -3,7 +3,7 @@ Given /^I am at Log in page$/ do
 end
 
 When /^Log in with valid credentials$/ do
-  on(LoginPage).login_with(@username, @password)
+  on(LoginPage).login_with(@mediawiki_username, @mediawiki_password)
 end
 When /^I log in without entering credentials$/ do
   on(LoginPage).login_with("", "")

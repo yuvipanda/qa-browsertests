@@ -1,11 +1,11 @@
 Given /^I am logged in$/ do
-  visit(LoginPage).login_with(@username, @password)
+  visit(LoginPage).login_with(@mediawiki_username, @mediawiki_password)
 end
 Given /^Login is required to upload$/ do
   visit_page(UploadWizardPage)
   @current_page.logged_in
   @current_page.text.should include "Log in / create account"
-  on(LoginPage).login_with(@username, @password)
+  on(LoginPage).login_with(@mediawiki_username, @mediawiki_password)
 end
 
 When /^click button Continue$/ do
