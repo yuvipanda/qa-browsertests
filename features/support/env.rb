@@ -8,9 +8,9 @@ require "yaml"
 
 World(PageObject::PageFactory)
 
-def browser(environment, test_name)
+def browser(environment, test_name, saucelabs_username, saucelabs_key)
   if environment == :cloudbees
-    sauce_browser(test_name)
+    sauce_browser(test_name, saucelabs_username, saucelabs_key)
   else
     local_browser
   end
@@ -25,7 +25,7 @@ end
 def local_browser
   Watir::Browser.new :firefox
 end
-def sauce_browser(test_name)
+def sauce_browser(test_name, saucelabs_username, saucelabs_key)
   config = YAML.load_file('config/config.yml')
   browser_label = config[ENV['BROWSER_LABEL']]
 
@@ -36,7 +36,7 @@ def sauce_browser(test_name)
 
   browser = Watir::Browser.new(
     :remote,
-    :url => "http://#{SECRET['username']}:#{SECRET['key']}@ondemand.saucelabs.com:80/wd/hub",
+    :url => "http://#{saucelabs_username}:#{saucelabs_key}@ondemand.saucelabs.com:80/wd/hub",
     :desired_capabilities => caps)
 
   browser.wd.file_detector = lambda do |args|
@@ -60,15 +60,17 @@ mediawiki_username = config['mediawiki_username']
 
 SECRET = YAML.load_file('config/secret.yml')
 mediawiki_password = SECRET['mediawiki_password']
+saucelabs_username = SECRET['saucelabs_username']
+saucelabs_key = SECRET['saucelabs_key']
 
 Before do |scenario|
   @mediawiki_username = mediawiki_username
   @mediawiki_password = mediawiki_password
-  @browser = browser(environment, test_name(scenario))
+  @browser = browser(environment, test_name(scenario), saucelabs_username, saucelabs_key)
   $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
 end
 
 After do |scenario|
-  %x{curl -H "Content-Type:text/json" -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{SECRET['username']}:#{SECRET['key']}@saucelabs.com/rest/v1/#{SECRET['username']}/jobs/#{$session_id}} if environment == :cloudbees
+  %x{curl -H "Content-Type:text/json" -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}} if environment == :cloudbees
   @browser.close
 end
