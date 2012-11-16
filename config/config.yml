@@ -9,7 +9,6 @@ base_url:
 mediawiki_username: uploadwizardtest
 
 tests:
-  site_address: https://test2.wikimedia.org/wiki/
   files:
     never_uploaded: /uwthumb2.png
     another_never_uploaded: /uwthumb1.png
