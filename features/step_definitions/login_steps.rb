@@ -3,10 +3,7 @@ Given /^I am at Log in page$/ do
 end
 
 When /^Log in with valid credentials$/ do
-  config = YAML.load_file('config/config.yml')
-  username = config['tests']['username']
-  password = SECRET['uw_password']
-  on(LoginPage).login_with(username, password)
+  on(LoginPage).login_with(@username, @password)
 end
 When /^I log in without entering credentials$/ do
   on(LoginPage).login_with("", "")

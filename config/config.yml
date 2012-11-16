@@ -6,8 +6,9 @@ base_url:
   test2: http://test2.wikipedia.org/wiki/
   wmflabs: http://en.wikipedia.beta.wmflabs.org/wiki/
 
+test2_username: uploadwizardtest
+
 tests:
-  username: uploadwizardtest
   site_address: https://test2.wikimedia.org/wiki/
   files:
     never_uploaded: /uwthumb2.png

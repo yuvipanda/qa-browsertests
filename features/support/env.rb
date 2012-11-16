@@ -55,9 +55,15 @@ def test_name(scenario)
   end
 end
 
+config = YAML.load_file('config/config.yml')
+username = config['test2_username']
+
 SECRET = YAML.load_file('config/secret.yml')
+password = SECRET['test2_password']
 
 Before do |scenario|
+  @username = username
+  @password = password
   @browser = browser(environment, test_name(scenario))
   $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
 end

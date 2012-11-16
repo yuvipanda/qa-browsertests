@@ -1,17 +1,11 @@
 Given /^I am logged in$/ do
-  config = YAML.load_file('config/config.yml')
-  username = config['tests']['username']
-  password = SECRET['uw_password']
-  visit(LoginPage).login_with(username, password)
+  visit(LoginPage).login_with(@username, @password)
 end
 Given /^Login is required to upload$/ do
   visit_page(UploadWizardPage)
   @current_page.logged_in
   @current_page.text.should include "Log in / create account"
-  config = YAML.load_file('config/config.yml')
-  username = config['tests']['username']
-  password = SECRET['uw_password']
-  on_page(LoginPage).login_with(username, password)
+  on(LoginPage).login_with(@username, @password)
 end
 
 When /^click button Continue$/ do
