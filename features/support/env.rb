@@ -34,10 +34,18 @@ def sauce_browser(test_name)
   caps.version = browser_label['version']
   caps[:name] = "#{test_name} #{ENV['JOB_NAME']}##{ENV['BUILD_NUMBER']}"
 
-  Watir::Browser.new(
+  browser = Watir::Browser.new(
     :remote,
     :url => "http://#{SECRET['username']}:#{SECRET['key']}@ondemand.saucelabs.com:80/wd/hub",
     :desired_capabilities => caps)
+
+  browser.wd.file_detector = lambda do |args|
+    # args => ["/path/to/file"]
+    str = args.first.to_s
+    str if File.exist?(str)
+  end
+
+  browser
 end
 def test_name(scenario)
   if scenario.respond_to? :feature
