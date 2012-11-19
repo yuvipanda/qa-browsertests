@@ -48,7 +48,7 @@ Then /^the learn screen should appear$/ do
     page.next_element.click
   end
 end
-And /^I should be able to upload a file and pick copyright info$/ do
+Then /^I should be able to upload a file and pick copyright info$/ do
   on_page(UploadWizardPage) do |arg|
     @page = arg
 
@@ -115,7 +115,7 @@ And /^I should be able to upload a file and pick copyright info$/ do
     @page.free_lic_element.should be_true
   end
 end
-And /^Source and Author are required$/ do
+Then /^Source and Author are required$/ do
   on_page(UploadWizardPage) do |arg|
     @page = arg
     @page.next_button_element.click
@@ -126,7 +126,7 @@ And /^Source and Author are required$/ do
     #@page.text.should include "This field is required"
   end
 end
-And /^Title Description Location can be set$/ do
+Then /^Title Description Location can be set$/ do
   on_page(UploadWizardPage) do |arg|
     @page = arg
     @page.own_work_button_element.click
@@ -162,7 +162,7 @@ And /^Title Description Location can be set$/ do
     @page.other_information_element.send_keys("Automated test")
   end
 end
-And /^I can navigate back to UW$/ do
+Then /^I can navigate back to UW$/ do
   on_page(UploadWizardPage) do |newpage|
     # Prevent alert from firing
     newpage.browser.execute_script 'window.onbeforeunload = function () {};'
@@ -173,7 +173,7 @@ And /^I can navigate back to UW$/ do
     newpage.next_element.click
   end
 end
-And /^I can upload two more files$/ do
+Then /^I can upload two more files$/ do
   on_page(UploadWizardPage) do |arg|
     @page = arg
 
