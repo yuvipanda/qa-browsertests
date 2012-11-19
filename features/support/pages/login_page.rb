@@ -3,8 +3,7 @@ class LoginPage
   include URLModule
 
   def self.url
-    config = YAML.load_file('config/config.yml')
-    "#{config['base_url'][URLModule.base_url]}Special:UserLogin"
+    URLModule.url("Special:UserLogin")
   end
   page_url url
 

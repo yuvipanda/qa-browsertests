@@ -8,4 +8,8 @@ module URLModule
       "test2"
     end
   end
+  def self.url(page)
+    config = YAML.load_file('config/config.yml')
+    "#{config['base_url'][self.base_url]}#{page}"
+  end
 end

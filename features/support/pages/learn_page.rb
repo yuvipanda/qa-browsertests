@@ -3,8 +3,7 @@ class LearnPage
   include URLModule
 
   def self.url
-    config = YAML.load_file('config/config.yml')
-    "#{config['base_url'][URLModule.base_url]}Special:UploadWizard"
+    URLModule.url("Special:UploadWizard")
   end
   page_url url
 
