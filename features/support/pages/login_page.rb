@@ -1,14 +1,17 @@
 class LoginPage
   include PageObject
 
-  if ENV['BASE_URL']
-    base_url = ENV['BASE_URL']
-  else
-    base_url = "test2"
-  end
+  def self.url
+    if ENV['BASE_URL']
+      base_url = ENV['BASE_URL']
+    else
+      base_url = "test2"
+    end
 
-  config = YAML.load_file('config/config.yml')
-  page_url "#{config['base_url'][base_url]}Special:UserLogin"
+    config = YAML.load_file('config/config.yml')
+    "#{config['base_url'][base_url]}Special:UserLogin"
+  end
+  page_url url
 
   text_field(:username, :id => 'wpName1')
   text_field(:password, :id => 'wpPassword1')

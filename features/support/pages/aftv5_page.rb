@@ -1,7 +1,13 @@
 class AftV5Page
   include PageObject
 
-  page_url 'http://en.wikipedia.beta.wmflabs.org/wiki/Special:Random'
+  def self.url
+    base_url = "wmflabs"
+
+    config = YAML.load_file('config/config.yml')
+    "#{config['base_url'][base_url]}Special:Random"
+  end
+  page_url url
 
   div(:aft_box, :id => 'mw-articlefeedbackv5')
   link(:float_tip, :link_text => "What's this?")
