@@ -7,17 +7,16 @@ class LoginPage
   end
   page_url url
 
-  text_field(:username, :id => 'wpName1')
-  text_field(:password, :id => 'wpPassword1')
+  div(:feedback, class: "errorbox")
   button(:login, :id => 'wpLoginAttempt')
+  text_field(:password, :id => 'wpPassword1')
   link(:phishing, :link_text => "phishing")
   link(:password_strength, :link_text => "password strength")
-  div(:feedback, class: "errorbox")
+  text_field(:username, :id => 'wpName1')
 
   def logged_in_as_element
     @browser.div(id: "mw-content-text").p.b
   end
-
   def login_with(username, password)
     self.username = username
     self.password = password

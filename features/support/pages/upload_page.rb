@@ -7,6 +7,6 @@ class UploadPage
   end
   page_url url
 
-  file_field(:select_file, name: "file")
   span(:continue, text: "Continue")
+  file_field(:select_file, name: "file")
 end

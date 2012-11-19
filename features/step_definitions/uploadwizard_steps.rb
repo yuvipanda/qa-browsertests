@@ -26,26 +26,59 @@ When /^upload file (.+)$/ do |file_name|
   on(UploadPage).select_file = path
 end
 
-Then /^Learn page should appear$/ do
-  @browser.url.should == on(UploadWizardPage).class.url
-end
 Then /^(.+) checkbox should be there$/ do |_|
   on(LearnPage).skip_element.should exist
 end
-Then /^Upload page should appear$/ do
-  @browser.url.should == on(UploadPage).class.url
+Then /^I can navigate back to UW$/ do
+  on_page(UploadWizardPage) do |newpage|
+    # Prevent alert from firing
+    newpage.browser.execute_script 'window.onbeforeunload = function () {};'
+  end
+  visit_page(UploadWizardPage)
+  on_page(UploadWizardPage) do |newpage|
+    newpage.tutorial_map.should be_true
+    newpage.next_element.click
+  end
 end
-Then /^Select a media file to donate button should be there$/ do
-  on(UploadPage).select_file_element.should exist
-end
-Then /^the learn screen should appear$/ do
-  on_page(UploadWizardPage) do |page|
-    page.skip_radio_element.when_visible
-    page.check_skip_radio
-    page.skip_radio_checked?.should be_true
-    page.uncheck_skip_radio
-    page.skip_radio_checked?.should be_false
-    page.next_element.click
+Then /^I can upload two more files$/ do
+  on_page(UploadWizardPage) do |arg|
+    @page = arg
+
+    config = YAML.load_file('config/config.yml')
+    files = config['tests']['files']
+    @page.select_file = File.dirname(__FILE__) + files['never_uploaded']
+
+    @page.wait_until(5) do
+      @page.text.include? "All uploads were successful!"
+    end
+
+    @page.select_file = File.dirname(__FILE__) + files['another_never_uploaded']
+
+    @page.wait_until(5) do
+      #@page.text.include? "All uploads were successful!"
+      @page.text.include? "There was another file already on the site with the same content, but it was deleted"
+    end
+
+#    @page.continue_button
+#    #own work
+#    @page.wait_until(5) do
+#      @page.text.include? "This site requires you to provide copyright information for these works, to make sure everyone can legally reuse them"
+#    end
+#    @page.select_own_work_button
+#    @page.text.should include "the copyright holder of these works, irrevocably grant anyone the right to use these works under the Creative Commons Attribution ShareAlike 3.0 license"
+
+# I don't really care about the copyright stuff in this test, I already made sure it worked before.
+#    @page.select_cca_sa
+#    @page.next_button_element.click
+
+#    @page.wait_until(5) do
+#       @page.text.include? "Description"
+#    end
+
+#    @page.categories.should be_true
+
+#    @page.copymeta.should be_true
+#    @page.text.should include 'Copy title'
   end
 end
 Then /^I should be able to upload a file and pick copyright info$/ do
@@ -115,6 +148,18 @@ Then /^I should be able to upload a file and pick copyright info$/ do
     @page.free_lic_element.should be_true
   end
 end
+Then /^Learn page should appear$/ do
+  @browser.url.should == on(UploadWizardPage).class.url
+end
+Then /^Next button should be there$/ do
+  on(ReleaseRightsPage).next_element.should be_present
+end
+Then /^Release rights page should open$/ do
+  @browser.url.should == on(ReleaseRightsPage).class.url
+end
+Then /^Select a media file to donate button should be there$/ do
+  on(UploadPage).select_file_element.should exist
+end
 Then /^Source and Author are required$/ do
   on_page(UploadWizardPage) do |arg|
     @page = arg
@@ -124,6 +169,16 @@ Then /^Source and Author are required$/ do
       @page.text.include? "This field is required"
     end
     #@page.text.should include "This field is required"
+  end
+end
+Then /^the learn screen should appear$/ do
+  on_page(UploadWizardPage) do |page|
+    page.skip_radio_element.when_visible
+    page.check_skip_radio
+    page.skip_radio_checked?.should be_true
+    page.uncheck_skip_radio
+    page.skip_radio_checked?.should be_false
+    page.next_element.click
   end
 end
 Then /^Title Description Location can be set$/ do
@@ -162,61 +217,7 @@ Then /^Title Description Location can be set$/ do
     @page.other_information_element.send_keys("Automated test")
   end
 end
-Then /^I can navigate back to UW$/ do
-  on_page(UploadWizardPage) do |newpage|
-    # Prevent alert from firing
-    newpage.browser.execute_script 'window.onbeforeunload = function () {};'
-  end
-  visit_page(UploadWizardPage)
-  on_page(UploadWizardPage) do |newpage|
-    newpage.tutorial_map.should be_true
-    newpage.next_element.click
-  end
+Then /^Upload page should appear$/ do
+  @browser.url.should == on(UploadPage).class.url
 end
-Then /^I can upload two more files$/ do
-  on_page(UploadWizardPage) do |arg|
-    @page = arg
 
-    config = YAML.load_file('config/config.yml')
-    files = config['tests']['files']
-    @page.select_file = File.dirname(__FILE__) + files['never_uploaded']
-
-    @page.wait_until(5) do
-      @page.text.include? "All uploads were successful!"
-    end
-
-    @page.select_file = File.dirname(__FILE__) + files['another_never_uploaded']
-
-    @page.wait_until(5) do
-      #@page.text.include? "All uploads were successful!"
-      @page.text.include? "There was another file already on the site with the same content, but it was deleted"
-    end
-
-#    @page.continue_button
-#    #own work
-#    @page.wait_until(5) do
-#      @page.text.include? "This site requires you to provide copyright information for these works, to make sure everyone can legally reuse them"
-#    end
-#    @page.select_own_work_button
-#    @page.text.should include "the copyright holder of these works, irrevocably grant anyone the right to use these works under the Creative Commons Attribution ShareAlike 3.0 license"
-
-    # I don't really care about the copyright stuff in this test, I already made sure it worked before.
-#    @page.select_cca_sa
-#    @page.next_button_element.click
-
-#    @page.wait_until(5) do
-#       @page.text.include? "Description"
-#    end
-
-#    @page.categories.should be_true
-
-#    @page.copymeta.should be_true
-#    @page.text.should include 'Copy title'
-  end
-end
-Then /^Release rights page should open$/ do
-  @browser.url.should == on(ReleaseRightsPage).class.url
-end
-Then /^Next button should be there$/ do
-  on(ReleaseRightsPage).next_element.should be_present
-end
