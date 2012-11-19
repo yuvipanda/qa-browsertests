@@ -23,7 +23,4 @@ class AftV5Page
   link(:terms, :href => '//wikimediafoundation.org/wiki/Feedback_privacy_statement', :link_text => 'terms')
   link(:view_article, :link_text => 'View article')
   radio_button(:yes_button, :id => 'articleFeedbackv5-bucket6-toggle-yes')
-
-  # ANONS GET CREATE AN ACCOUNT/LOGIN CTA HERE
-  # FOLLOWING feedback_page LINK GOES TO AFT FOR THE RANDOM ARTICLE
 end
