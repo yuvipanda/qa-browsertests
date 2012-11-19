@@ -58,10 +58,10 @@ end
 config = YAML.load_file('config/config.yml')
 mediawiki_username = config['mediawiki_username']
 
-SECRET = YAML.load_file('config/secret.yml')
-mediawiki_password = SECRET['mediawiki_password']
-saucelabs_username = SECRET['saucelabs_username']
-saucelabs_key = SECRET['saucelabs_key']
+secret = YAML.load_file('config/secret.yml')
+mediawiki_password = secret['mediawiki_password']
+saucelabs_username = secret['saucelabs_username']
+saucelabs_key = secret['saucelabs_key']
 
 Before do |scenario|
   @mediawiki_username = mediawiki_username
