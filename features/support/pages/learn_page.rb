@@ -7,5 +7,5 @@ class LearnPage
   end
   page_url url
 
-  checkbox(:skip, id: "mwe-upwiz-skip")
+  checkbox(:skip, id: 'mwe-upwiz-skip')
 end

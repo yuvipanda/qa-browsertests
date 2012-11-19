@@ -7,7 +7,7 @@ class ReleaseRightsPage
   end
   page_url url
 
-  div(:next_parent, id: "mwe-upwiz-stepdiv-deeds")
+  div(:next_parent, id: 'mwe-upwiz-stepdiv-deeds')
   span(:next) do |page|
     page.next_parent_element.span(text: 'Next')
   end
