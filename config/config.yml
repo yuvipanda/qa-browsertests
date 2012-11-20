@@ -8,11 +8,6 @@ base_url:
 
 mediawiki_username: uploadwizardtest
 
-tests:
-  files:
-    never_uploaded: /uwthumb2.png
-    another_never_uploaded: /uwthumb1.png
-
 android:
   name: android
   platform: Linux
