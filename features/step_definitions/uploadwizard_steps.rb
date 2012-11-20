@@ -14,6 +14,15 @@ end
 When /^I click Next button$/ do
   on(UploadWizardPage).next_element.click
 end
+When /^I click Next button at Learn page$/ do
+  on(LearnPage).next_element.click
+end
+When /^I click Next button at Release rights page$/ do
+  on(ReleaseRightsPage).next_element.click
+end
+When /^I click This file is my own work$/ do
+  on(ReleaseRightsPage).my_own_work_element.click
+end
 When /^I navigate to Upload Wizard$/ do
   visit_page(UploadWizardPage)
   @current_page.text.include? "Thanks for using our new upload tool!Help with translations"
@@ -28,6 +37,9 @@ end
 
 Then /^(.+) checkbox should be there$/ do |_|
   on(LearnPage).skip_element.should exist
+end
+Then /^Describe page should open$/ do
+  @browser.url.should == on(DescribePage).class.url
 end
 Then /^I can navigate back to UW$/ do
   on_page(UploadWizardPage) do |newpage|
@@ -217,7 +229,9 @@ Then /^Title Description Location can be set$/ do
     @page.other_information_element.send_keys("Automated test")
   end
 end
+Then /^title text field should be there$/ do
+  on(DescribePage).title_element.should exist
+end
 Then /^Upload page should appear$/ do
   @browser.url.should == on(UploadPage).class.url
 end
-
