@@ -14,6 +14,10 @@ end
 When /^I click Next button$/ do
   on(UploadWizardPage).next_element.click
 end
+When /^I click Next button at Describe page$/ do
+  sleep 1 # todo # I can not figure out at the moment how to make this work without using sleep
+  on(DescribePage).next_element.click
+end
 When /^I click Next button at Learn page$/ do
   on(LearnPage).next_element.click
 end
@@ -22,6 +26,12 @@ When /^I click Next button at Release rights page$/ do
 end
 When /^I click This file is my own work$/ do
   on(ReleaseRightsPage).my_own_work_element.click
+end
+When /^I enter description$/ do
+  on(DescribePage).description = "description"
+end
+When /^I enter title$/ do
+  on(DescribePage).title = Random.new.rand
 end
 When /^I navigate to Upload Wizard$/ do
   visit_page(UploadWizardPage)
@@ -232,6 +242,15 @@ end
 Then /^title text field should be there$/ do
   on(DescribePage).title_element.should exist
 end
+Then /^Upload more files button should be there$/ do
+  on(UsePage) do |page|
+    page.upload_more_files_element.when_present
+    page.upload_more_files_element.should be_visible
+  end
+end
 Then /^Upload page should appear$/ do
   @browser.url.should == on(UploadPage).class.url
+end
+Then /^Use page should open$/ do
+  @browser.url.should == on(UsePage).class.url
 end

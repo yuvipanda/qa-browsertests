@@ -33,6 +33,20 @@ Feature: UploadWizard
     Then Describe page should open
       And title text field should be there
 
+  Scenario: Navigate to Use page
+    Given I am logged in
+    When I navigate to Upload Wizard
+      And I click Next button at Learn page
+      And upload file image.png
+      And click button Continue
+      And I click This file is my own work
+      And I click Next button at Release rights page
+      And I enter title
+      And I enter description
+      And I click Next button at Describe page
+    Then Use page should open
+      And Upload more files button should be there
+
   Scenario: Run UploadWizard
     Given Login is required to upload
     When I navigate to Upload Wizard
