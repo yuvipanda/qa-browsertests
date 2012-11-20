@@ -1,27 +1,29 @@
-Given /^I am at a random article$/ do
+Given /^I am at an AFT page$/ do
   visit AftV5Page
   @random_string = ('a' .. 'z').to_a.shuffle[0,10].join
 end
 
 When /^The AFTv5 element appears$/ do
-  #on(AftV5Page).aft_box_element.should be_true
   on(AftV5Page) do |page|
     page.aft_box_element.should be_true
-    #page.send_keys :space
-
   end
 end
 
-Then /^I can click Yes and No and always return to AFT input$/ do
-  on_page(AftV5Page) do |page|
+When /^I click Yes and No$/ do
+  on(AftV5Page) do |page|
     page.yes_span_element.exists?
     page.yes_span_element.when_present.click
     page.back_to_yesno
     page.no_span_element.when_present.click
     page.back_to_yesno
+  end
+end
+
+Then /^I can always return to AFT input$/ do
+  on_page(AftV5Page) do |page|
     page.yes_span_element.should be_true
     page.no_span_element.should be_true
-  end
+end
 end
 
 Then /^Help improve this page text appears$/ do
