@@ -152,7 +152,7 @@ Then /^Learn page should appear$/ do
   @browser.url.should == on(UploadWizardPage).class.url
 end
 Then /^Next button should be there$/ do
-  on(ReleaseRightsPage).next_element.should be_present
+  on(ReleaseRightsPage).next_element.should be_visible
 end
 Then /^Release rights page should open$/ do
   @browser.url.should == on(ReleaseRightsPage).class.url
