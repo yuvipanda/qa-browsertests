@@ -38,7 +38,3 @@ Feature: AftV5
       And When I click to navigate to comments page my saved comment appears
       And Comments are shown Relevant and All and Sort By
       And I have links to Learn more and View Article
-
-
-
-
