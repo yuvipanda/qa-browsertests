@@ -4,6 +4,7 @@ base_url:
   testm: http://test.m.wikipedia.org/w/index.php?title=
   test2: http://test2.wikipedia.org/wiki/
   wikipedia: https://en.wikipedia.org/wiki/
+  wikipediam: http://m.en.wikipedia.org/wiki/
   wmflabs: http://en.wikipedia.beta.wmflabs.org/wiki/
 
 mediawiki_username: uploadwizardtest
