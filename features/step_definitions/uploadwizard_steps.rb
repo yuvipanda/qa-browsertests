@@ -30,7 +30,7 @@ When /^I navigate to Upload Wizard$/ do
 end
 When /^upload file (.+)$/ do |file_name|
   require "chunky_png"
-  ChunkyPNG::Image.new(16, 16).save file_name
+  ChunkyPNG::Image.new(16, 16, 255).save file_name
   path = Dir.pwd + "/" + file_name
   on(UploadPage).select_file = path
 end
