@@ -71,11 +71,12 @@ And /^After saving I have links to feedback page and See all comments available$
   end
 end
 
-And /^When I click to navigate to comments page my saved comment appears$/ do
-  on_page(AftV5Page) do |page|
+Then /^When I click to navigate to comments page my saved comment appears$/ do
+  on(AftV5Page) do |page|
     page.all_comments_element.when_present.click
-    sleep 10
-    page.text.should include "#{@input_string}"
+    page.wait_until(10) do
+      page.text.include? @input_string
+    end
   end
 end
 
