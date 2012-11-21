@@ -5,12 +5,10 @@ Feature: AftV5
     When I click Yes and No
     Then I can always return to AFT input
 
-  Scenario: Check Whats this and helpful feedback and terms
+  Scenario: Check Whats this with Learn more
     Given I am at an AFT page
-    When The AFTv5 element appears
-    Then Help improve this page text appears
-      And I can click Whats this and see a floating text window
-      And When I click Yes I see helpful feedback guide and terms
+    When I click Whats this
+    Then I see a floating text window with Learn more link
 
   Scenario: Click yes and leave feedback
     Given I am at an AFT page

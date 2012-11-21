@@ -32,12 +32,17 @@ Then /^Help improve this page text appears$/ do
   end
 end
 
-And /^I can click Whats this and see a floating text window$/ do
+When /^I click Whats this$/ do
   on_page(AftV5Page) do |page|
     page.float_tip
+  end
+end
+
+Then /^I see a floating text window with Learn more link$/ do
+on_page(AftV5Page) do |page|
     page.text.should include "Wikipedia would like to hear what you think of this article. Share your feedback with the editors -- and help improve this page"
     page.learn_more_element.should be_true
-  end
+end
 end
 
 And /^When I click Yes I see helpful feedback guide and terms$/ do
