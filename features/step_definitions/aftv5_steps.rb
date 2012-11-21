@@ -1,11 +1,7 @@
-Given /^I am at an AFT page$/ do
-  visit AftV5Page
-  @random_string = ('a' .. 'z').to_a.shuffle[0,10].join
-end
 
-When /^The AFTv5 element appears$/ do
-  on(AftV5Page) do |page|
-    page.aft_box_element.should be_true
+Given /^I am at an AFT page$/ do
+  visit AftV5Page do |page|
+    page.text.should include "Help improve this page"
   end
 end
 
@@ -23,12 +19,6 @@ Then /^I can always return to AFT input$/ do
   on_page(AftV5Page) do |page|
     page.yes_span_element.should be_true
     page.no_span_element.should be_true
-end
-end
-
-Then /^Help improve this page text appears$/ do
-  on_page(AftV5Page) do |page|
-    page.text.should include "Help improve this page"
   end
 end
 
@@ -39,24 +29,30 @@ When /^I click Whats this$/ do
 end
 
 Then /^I see a floating text window with Learn more link$/ do
-on_page(AftV5Page) do |page|
+  on_page(AftV5Page) do |page|
     page.text.should include "Wikipedia would like to hear what you think of this article. Share your feedback with the editors -- and help improve this page"
     page.learn_more_element.should be_true
-end
+  end
 end
 
-And /^When I click Yes I see helpful feedback guide and terms$/ do
+When /^I click Yes$/ do
   on_page(AftV5Page) do |page|
     page.yes_span_element.when_present.click
+  end
+end
+
+Then /^I see helpful feedback guide and terms$/ do
+  on_page(AftV5Page) do |page|
     page.helpful_feedback_element.should be_true
     page.terms_element.should be_true
   end
 end
 
-And /^I can enter and save text$/ do
+Then /^I can enter and save text$/ do
   on_page(AftV5Page) do |arg|
+    @input_string = "Automated test did this #{('a' .. 'z').to_a.shuffle[0,10].join}"
     @page = arg
-    @page.input_area_element.send_keys "Automated test wrote this feedback" + @random_string
+    @page.input_area_element.send_keys "Hello from #{@input_string}"
     @page.post_feedback_element.when_present.click
     @page.wait_until(10) do
       @page.text.include? "Thanks!"
@@ -78,7 +74,8 @@ end
 And /^When I click to navigate to comments page my saved comment appears$/ do
   on_page(AftV5Page) do |page|
     page.all_comments_element.when_present.click
-    page.text.should include "Automated test wrote this feedback" + @random_string
+    sleep 10
+    page.text.should include "#{@input_string}"
   end
 end
 
