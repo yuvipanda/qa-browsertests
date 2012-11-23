@@ -49,18 +49,17 @@ Then /^I see helpful feedback guide and terms$/ do
 end
 
 Then /^I can enter and save text$/ do
-  on(AftV5Page) do |arg|
+  on(AftV5Page) do |page|
     @input_string = "Automated test did this #{('a' .. 'z').to_a.shuffle[0,10].join}"
-    @page = arg
-    @page.input_area_element.send_keys "Hello from #{@input_string}"
-    @page.post_feedback_element.when_present.click
-    @page.wait_until(10) do
-      @page.text.include? "Thanks!"
+    page.input_area_element.send_keys "Hello from #{@input_string}"
+    page.post_feedback_element.when_present.click
+    page.wait_until(10) do
+      page.text.include? "Thanks!"
     end
-    @page.text.should include "Your post can be viewed on this feedback page."
+    page.text.should include "Your post can be viewed on this feedback page."
     #ONLY ANONS GET 'CREATE ACCOUNT'/LOG IN MESSAGE
-    @page.create_account_element.should be_true
-    @page.log_in_element.should be_true
+    page.create_account_element.should be_true
+    page.log_in_element.should be_true
   end
 end
 
