@@ -8,7 +8,7 @@ describe "Logging into the system" do
 
   context "successful login" do
     it "should display welcome message" do
-      on_page(LoginPage) do |page|
+      on(LoginPage) do |page|
         page.login_with('foo', 'bar')
         #page.text.should include "Welcome foo"
         page.text.should include "Secure your account"
@@ -19,7 +19,7 @@ describe "Logging into the system" do
 
   context "unsuccessful login" do
     it "should display an error messge" do
-      on_page(LoginPage) do |page|
+      on(LoginPage) do |page|
         page.login_with('foo', 'badpass')
         page.text.should include "Login error"
         page.text.should include "Secure your account"
@@ -29,7 +29,7 @@ describe "Logging into the system" do
   
   context "check login page links" do
     it "should demonstrate all the defined links exist" do 
-      on_page(LoginPage) do |page|
+      on(LoginPage) do |page|
         page.phishing_element.should be_true
         page.password_strength_element.should be_true
       end
@@ -38,7 +38,7 @@ describe "Logging into the system" do
   
   context "visit login page links" do
     it "should follow all the defined links" do 
-      on_page(LoginPage) do |page|
+      on(LoginPage) do |page|
         page.phishing.should be_true
         page.text.should include "Not to be confused with"
       end

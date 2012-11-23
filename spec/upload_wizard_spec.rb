@@ -10,7 +10,7 @@ describe "Manipulating Special:UploadWizard" do
       config = YAML.load_file('config.yml')
       username = config['tests']['username']
       password = config['tests']['password']
-      on_page(LoginPage).login_with(username, password)
+      on(LoginPage).login_with(username, password)
     end
   end
 
@@ -24,7 +24,7 @@ describe "Manipulating Special:UploadWizard" do
  
   context "Check Learn screen elements and navigate to Upload" do
     it "should have a skip box and a Next" do
-      on_page(UploadWizardPage) do |page|
+      on(UploadWizardPage) do |page|
         page.skip_radio_element.when_visible
         page.check_skip_radio
         page.skip_radio_checked?.should be_true
@@ -37,7 +37,7 @@ describe "Manipulating Special:UploadWizard" do
 
   context "Upload a file and check license info" do
     it "should make all license choices available upon upload" do
-      on_page(UploadWizardPage) do |arg|
+      on(UploadWizardPage) do |arg|
         @page = arg
 
         config = YAML.load_file('config.yml')
@@ -107,7 +107,7 @@ describe "Manipulating Special:UploadWizard" do
 
   context "Source and Author are required" do
     it "should display error messages for empty Source and Author fields" do
-      on_page(UploadWizardPage) do |arg|
+      on(UploadWizardPage) do |arg|
         @page = arg
         @page.next_button_element.click
         # improve this, like a regex for "glob:This field is required*Source*This field is required*Author"
@@ -121,7 +121,7 @@ describe "Manipulating Special:UploadWizard" do
 
   context "Title, Description, etc. are in place" do
     it "should be able to type into Title, Description, check language and category link" do
-      on_page(UploadWizardPage) do |arg|
+      on(UploadWizardPage) do |arg|
         @page = arg
         @page.own_work_button_element.click
         @page.next_button_element.click
@@ -159,12 +159,12 @@ describe "Manipulating Special:UploadWizard" do
 
   context "Navigate to UW should still work after previous tests" do
     it "should be on UW" do
-      on_page(UploadWizardPage) do |newpage|
+      on(UploadWizardPage) do |newpage|
         # Prevent alert from firing
         newpage.browser.execute_script 'window.onbeforeunload = function () {};'
       end
       visit_page(UploadWizardPage)
-      on_page(UploadWizardPage) do |newpage|
+      on(UploadWizardPage) do |newpage|
         newpage.tutorial_map.should be_true
         newpage.next_element.click
       end
@@ -173,7 +173,7 @@ describe "Manipulating Special:UploadWizard" do
 
   context "Upload two files and check messages" do
     it "should pluralize messages properly with multiple files" do
-      on_page(UploadWizardPage) do |arg|
+      on(UploadWizardPage) do |arg|
         @page = arg
 
         config = YAML.load_file('config.yml')

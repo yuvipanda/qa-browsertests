@@ -28,7 +28,7 @@ end
 #end
 
 #And /^When the watchlist link is clicked it becomes watched$/ do
-#  on_page(MobilePage) do |arg|
+#  on(MobilePage) do |arg|
 #    @page = arg
 #    @page.watch_link
 #    @page.wait_until(10) do
