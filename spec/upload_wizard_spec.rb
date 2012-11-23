@@ -4,7 +4,7 @@ require 'yaml'
 describe "Manipulating Special:UploadWizard" do
   context "Log in is required" do
     it "should have a link to log in and have correct login credentials" do
-      visit_page(UploadWizardPage)
+      visit(UploadWizardPage)
       @current_page.logged_in
       @current_page.text.should include "Log in / create account"
       config = YAML.load_file('config.yml')
@@ -16,7 +16,7 @@ describe "Manipulating Special:UploadWizard" do
 
   context "Navigate to UW should work after login" do
     it "should be on UW" do
-      visit_page(UploadWizardPage)
+      visit(UploadWizardPage)
       @current_page.text.include? "Thanks for using our new upload tool!Help with translations"
       @current_page.tutorial_map.should be_true
     end
@@ -163,7 +163,7 @@ describe "Manipulating Special:UploadWizard" do
         # Prevent alert from firing
         newpage.browser.execute_script 'window.onbeforeunload = function () {};'
       end
-      visit_page(UploadWizardPage)
+      visit(UploadWizardPage)
       on(UploadWizardPage) do |newpage|
         newpage.tutorial_map.should be_true
         newpage.next_element.click

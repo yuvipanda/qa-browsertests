@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe "Logging into the system" do
   before(:each) do
-    visit_page LoginPage
+    visit LoginPage
   end
 
   context "successful login" do
@@ -42,7 +42,7 @@ describe "Logging into the system" do
         page.phishing.should be_true
         page.text.should include "Not to be confused with"
       end
-      visit_page(LoginPage) do |page|
+      visit(LoginPage) do |page|
         page.password_strength.should be_true
         page.text.should include "measure of the effectiveness"
       end
