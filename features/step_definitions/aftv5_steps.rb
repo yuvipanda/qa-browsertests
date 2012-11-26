@@ -1,7 +1,5 @@
 Given /^I am at an AFT page$/ do
-  visit AftV5Page do |page|
-    page.text.should include "Help improve this page"
-  end
+  visit AftV5Page
 end
 
 When /^I click Whats this$/ do
