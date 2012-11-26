@@ -24,6 +24,18 @@ When /^I click Yes and No$/ do
   end
 end
 
+Then /^After saving I have links to feedback page and See all comments available$/ do
+  on(AftV5Page) do |page|
+    page.feedback_page_element.when_present.click
+    page.all_comments_element.should be_true
+  end
+end
+Then /^Comments are shown Relevant and All and Sort By$/ do
+  on(AftV5Page) do |page|
+    page.most_relevant.should be_true
+    page.sort_by_element.should be_true
+  end
+end
 Then /^I can always return to AFT input$/ do
   on(AftV5Page) do |page|
     page.yes_span_element.should be_true
@@ -44,6 +56,12 @@ Then /^I can enter and save text$/ do
     page.log_in_element.should be_true
   end
 end
+Then /^I have links to Learn more and View Article$/ do
+  on(AftV5Page) do |page|
+    page.learn_more_element.should be_true
+    page.view_article_element.should be_true
+  end
+end
 Then /^I see a floating text window with Learn more link$/ do
   on(AftV5Page) do |page|
     page.text.should include "Wikipedia would like to hear what you think of this article. Share your feedback with the editors -- and help improve this page"
@@ -62,24 +80,5 @@ Then /^When I click to navigate to comments page my saved comment appears$/ do
     page.wait_until(10) do
       page.text.include? @input_string
     end
-  end
-end
-
-And /^After saving I have links to feedback page and See all comments available$/ do
-  on(AftV5Page) do |page|
-    page.feedback_page_element.when_present.click
-    page.all_comments_element.should be_true
-  end
-end
-And /^Comments are shown Relevant and All and Sort By$/ do
-  on(AftV5Page) do |page|
-    page.most_relevant.should be_true
-    page.sort_by_element.should be_true
-  end
-end
-And /^I have links to Learn more and View Article$/ do
-  on(AftV5Page) do |page|
-    page.learn_more_element.should be_true
-    page.view_article_element.should be_true
   end
 end
