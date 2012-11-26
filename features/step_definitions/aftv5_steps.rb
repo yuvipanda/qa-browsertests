@@ -22,6 +22,9 @@ When /^I click Yes and No$/ do
   end
 end
 
+Then /^AFT should be there$/ do
+  on(AftV5Page).yes_span_element.should exist
+end
 Then /^After saving I have links to feedback page and See all comments available$/ do
   on(AftV5Page) do |page|
     page.feedback_page_element.when_present.click

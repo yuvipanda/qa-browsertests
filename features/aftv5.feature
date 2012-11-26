@@ -1,5 +1,9 @@
 Feature: AftV5
 
+  Scenario: Check if AFT is on the page
+    Given I am at an AFT page
+    Then AFT should be there
+    
   Scenario: Click Yes return and click No
     Given I am at an AFT page
     When I click Yes and No
