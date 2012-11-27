@@ -1,11 +1,7 @@
 class LoginPage
   include PageObject
-  include URLModule
 
-  def self.url
-    URLModule.url("Special:UserLogin")
-  end
-  page_url url
+  page_url "<%=params[:base_url]%>Special:UserLogin"
 
   div(:feedback, class: 'errorbox')
   button(:login, id: 'wpLoginAttempt')

@@ -64,6 +64,7 @@ saucelabs_username = secret['saucelabs_username']
 saucelabs_key = secret['saucelabs_key']
 
 Before do |scenario|
+  @config = config
   @mediawiki_username = mediawiki_username
   @mediawiki_password = mediawiki_password
   @browser = browser(environment, test_name(scenario), saucelabs_username, saucelabs_key)

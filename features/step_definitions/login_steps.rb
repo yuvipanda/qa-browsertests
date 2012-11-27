@@ -1,5 +1,6 @@
-Given /^I am at Log in page$/ do
-  visit(LoginPage)
+Given /^I am at (.+) Log in page$/ do |site|
+  base_url = @config['base_url'][site]
+  visit(LoginPage, :using_params => {:base_url => base_url})
 end
 
 When /^I log in without entering credentials$/ do
