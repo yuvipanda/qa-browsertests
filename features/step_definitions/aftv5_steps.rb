@@ -1,5 +1,6 @@
 Given /^I am at an AFT page$/ do
   visit AftV5Page
+  pending if ENV['BROWSER_LABEL'] == "internet_explorer_6"
 end
 
 When /^I click Whats this$/ do
@@ -23,7 +24,6 @@ When /^I click Yes and No$/ do
 end
 
 Then /^AFT should be there$/ do
-  pending if ENV['BROWSER_LABEL'] == "internet_explorer_6"
   on(AftV5Page).yes_span_element.should exist
 end
 Then /^After saving I have links to feedback page and See all comments available$/ do
