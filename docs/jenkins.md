@@ -47,8 +47,8 @@ or
     export BASE_URL=test2
     export ENVIRONMENT=cloudbees
 
-    curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/use-ruby
-    RUBY_VERSION=1.9.3-p286 \
+    curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/ruby/use-ruby
+    RUBY_VERSION=1.9.3-p327 \
       source ./use-ruby
 
     gem install bundler --no-ri --no-rdoc

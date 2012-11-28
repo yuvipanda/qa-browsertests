@@ -3,7 +3,7 @@
 ## Environment
 
 - Firefox 16
-- Ruby 1.9.3p327 or 1.9.3p194
+- Ruby 1.9.3p327
   - RubyGems 1.8.24
 
 Install required RubyGems:
