@@ -23,6 +23,7 @@ When /^I click Yes and No$/ do
 end
 
 Then /^AFT should be there$/ do
+  pending if ENV['BROWSER_LABEL'] == "internet_explorer_6"
   on(AftV5Page).yes_span_element.should exist
 end
 Then /^After saving I have links to feedback page and See all comments available$/ do
