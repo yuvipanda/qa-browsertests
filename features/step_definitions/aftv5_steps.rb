@@ -1,5 +1,6 @@
 Given /^I am at an AFT page$/ do
   visit AftV5Page
+  # http://www.mediawiki.org/wiki/Article_feedback/Version_5/Feature_Requirements#Platforms
   pending if ENV['BROWSER_LABEL'] == "internet_explorer_6"
 end
 
