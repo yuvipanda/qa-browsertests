@@ -18,7 +18,7 @@ Run the tests with `bundle exec rake`.
 
 Code is pushed to https://gerrit.wikimedia.org/r/gitweb?p=qa/browsertests.git;a=summary
 
-GitHub mirror is at https://github.com/zeljkofilipin/browsertests
+GitHub mirror is at https://github.com/wikimedia/qa-browsertests
 
 Jenkins is hosted at https://wmf.ci.cloudbees.com/
 
