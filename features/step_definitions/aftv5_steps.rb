@@ -25,7 +25,11 @@ When /^I click Yes and No$/ do
 end
 
 Then /^AFTv5 should be there$/ do
-  on(AFTv5Page).yes_element.should exist
+  on(AFTv5Page) do |page|
+    page.yes_element.should exist
+    page.no_element.should exist
+    page.float_tip_element.should exist
+  end
 end
 Then /^After saving I have links to feedback page and See all comments available$/ do
   on(AFTv5Page) do |page|
