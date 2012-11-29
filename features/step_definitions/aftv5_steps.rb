@@ -6,7 +6,7 @@ end
 
 When /^I click Whats this$/ do
   on(AFTv5Page) do |page|
-    page.float_tip
+    page.whats_this
   end
 end
 When /^I click Yes$/ do
@@ -28,7 +28,7 @@ Then /^AFTv5 should be there$/ do
   on(AFTv5Page) do |page|
     page.yes_element.should exist
     page.no_element.should exist
-    page.float_tip_element.should exist
+    page.whats_this_element.should exist
   end
 end
 Then /^After saving I have links to feedback page and See all comments available$/ do

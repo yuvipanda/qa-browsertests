@@ -15,7 +15,6 @@ class AFTv5Page
   a(:back_to_yesno, :text => "Back to step 1")
   span(:create_account, :text => 'Create an account')
   a(:feedback_page, :text => 'feedback page')
-  a(:float_tip, :text => "What's this?")
   a(:helpful_feedback, :href => 'http://en.wikipedia.org/wiki/Wikipedia:Feedback_guidelines', :text => 'helpful feedback')
   text_area(:input_area, :id => 'articleFeedbackv5-find-feedback')
   a(:learn_more, :text => /Learn more/)
@@ -26,5 +25,6 @@ class AFTv5Page
   select(:sort_by, :id => 'articleFeedbackv5-sort-select')
   a(:terms, :href => '//wikimediafoundation.org/wiki/Feedback_privacy_statement', :text => 'terms')
   a(:view_article, :text => 'View article')
+  a(:whats_this, :text => "What's this?")
   span(:yes, :text => "Yes")
 end
