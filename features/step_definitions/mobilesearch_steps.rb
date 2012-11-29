@@ -13,7 +13,7 @@ end
 
 Then /^Search results matching my characters appear$/ do
   # http://www.mediawiki.org/wiki/Mobile/Testing_process#SmartPhone
-  pending if ENV['BROWSER_LABEL'] == "internet_explorer_6"
+  pending if ENV['BROWSER_LABEL'].match /internet_explorer_[67]/
   on(MobilePage) do |page|
     page.wait_until(10) do
       page.text.include? "San Francisco"
