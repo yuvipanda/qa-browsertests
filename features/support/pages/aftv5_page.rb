@@ -1,4 +1,4 @@
-class AftV5Page
+class AFTv5Page
   include PageObject
   
   #THIS TEST SHOULD RUN ONLY ON BETA LABS UNTIL AFTV5 IS 100% ENABLED ON TEST2/PROD
