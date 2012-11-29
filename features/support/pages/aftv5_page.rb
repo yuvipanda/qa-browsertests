@@ -21,7 +21,7 @@ class AFTv5Page
   a(:learn_more, :text => /Learn more/)
   a(:log_in, :text => 'Log in')
   a(:most_relevant, :text => /Most relevant/)
-  span(:no_span, :text => "No")
+  span(:no, :text => "No")
   span(:post_feedback, :text => 'Post your feedback')
   select(:sort_by, :id => 'articleFeedbackv5-sort-select')
   a(:terms, :href => '//wikimediafoundation.org/wiki/Feedback_privacy_statement', :text => 'terms')

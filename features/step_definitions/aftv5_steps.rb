@@ -19,7 +19,7 @@ When /^I click Yes and No$/ do
     page.yes_element.exists?
     page.yes_element.when_present.click
     page.back_to_yesno
-    page.no_span_element.when_present.click
+    page.no_element.when_present.click
     page.back_to_yesno
   end
 end
@@ -42,7 +42,7 @@ end
 Then /^I can always return to AFTv5 input$/ do
   on(AFTv5Page) do |page|
     page.yes_element.should be_true
-    page.no_span_element.should be_true
+    page.no_element.should be_true
   end
 end
 Then /^I can enter and save text$/ do
