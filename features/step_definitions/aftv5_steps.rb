@@ -86,6 +86,9 @@ Then /^When I click to navigate to comments page my saved comment appears$/ do
   pending if ENV['BROWSER_LABEL'] == "internet_explorer_7"
 
   on(AFTv5Page) do |page|
+    page.wait_until(10) do
+      page.all_comments_element.visible?
+    end
     page.all_comments_element.when_present.click
     page.wait_until(10) do
       page.text.include? @input_string
