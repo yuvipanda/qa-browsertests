@@ -26,5 +26,5 @@ class AFTv5Page
   select(:sort_by, :id => 'articleFeedbackv5-sort-select')
   a(:terms, :href => '//wikimediafoundation.org/wiki/Feedback_privacy_statement', :text => 'terms')
   a(:view_article, :text => 'View article')
-  span(:yes_span, :text => "Yes")
+  span(:yes, :text => "Yes")
 end

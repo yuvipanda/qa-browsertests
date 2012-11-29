@@ -11,13 +11,13 @@ When /^I click Whats this$/ do
 end
 When /^I click Yes$/ do
   on(AFTv5Page) do |page|
-    page.yes_span_element.when_present.click
+    page.yes_element.when_present.click
   end
 end
 When /^I click Yes and No$/ do
   on(AFTv5Page) do |page|
-    page.yes_span_element.exists?
-    page.yes_span_element.when_present.click
+    page.yes_element.exists?
+    page.yes_element.when_present.click
     page.back_to_yesno
     page.no_span_element.when_present.click
     page.back_to_yesno
@@ -25,7 +25,7 @@ When /^I click Yes and No$/ do
 end
 
 Then /^AFTv5 should be there$/ do
-  on(AFTv5Page).yes_span_element.should exist
+  on(AFTv5Page).yes_element.should exist
 end
 Then /^After saving I have links to feedback page and See all comments available$/ do
   on(AFTv5Page) do |page|
@@ -41,7 +41,7 @@ Then /^Comments are shown Relevant and All and Sort By$/ do
 end
 Then /^I can always return to AFTv5 input$/ do
   on(AFTv5Page) do |page|
-    page.yes_span_element.should be_true
+    page.yes_element.should be_true
     page.no_span_element.should be_true
   end
 end
