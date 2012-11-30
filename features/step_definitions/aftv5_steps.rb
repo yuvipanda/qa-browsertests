@@ -53,6 +53,9 @@ Then /^I can always return to AFTv5 input$/ do
   end
 end
 Then /^I can enter and save text$/ do
+  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551
+  pending if ENV['BROWSER_LABEL'] == "internet_explorer_9"
+
   on(AFTv5Page) do |page|
     @input_string = "Automated test did this #{('a' .. 'z').to_a.shuffle[0,10].join}"
     page.input_area_element.send_keys "Hello from #{@input_string}"
