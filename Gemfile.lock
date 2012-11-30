@@ -29,6 +29,9 @@ GEM
     page-object (0.7.6)
       selenium-webdriver (>= 2.26.0)
       watir-webdriver (>= 0.6.1)
+    parallel (0.5.20)
+    parallel_tests (0.8.14)
+      parallel
     rake (10.0.2)
     require_all (1.2.1)
     rspec (2.12.0)
@@ -62,6 +65,7 @@ DEPENDENCIES
   json
   net-http-persistent
   page-object
+  parallel_tests
   rake
   require_all
   rspec
