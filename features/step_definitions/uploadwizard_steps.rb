@@ -1,5 +1,6 @@
 Given /^I am logged in$/ do
-  visit(LoginPage).login_with(@mediawiki_username, @mediawiki_password)
+  base_url = @config['base_url'][ENV['BASE_URL']]
+  visit(LoginPage, :using_params => {:base_url => base_url}).login_with(@mediawiki_username, @mediawiki_password)
 end
 
 When /^click button Continue$/ do
