@@ -15,6 +15,9 @@ When /^I click Yes$/ do
   end
 end
 When /^I click Yes and No$/ do
+  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551
+  pending if ENV['BROWSER_LABEL'] == "internet_explorer_9"
+
   on(AFTv5Page) do |page|
     page.yes_element.exists?
     page.yes_element.when_present.click
