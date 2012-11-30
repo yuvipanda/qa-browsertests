@@ -34,8 +34,10 @@ def sauce_browser(test_name, saucelabs_username, saucelabs_key)
   caps.version = browser_label['version']
   caps[:name] = "#{test_name} #{ENV['JOB_NAME']}##{ENV['BUILD_NUMBER']}"
 
+  require "selenium/webdriver/remote/http/persistent" # :http_client
   browser = Watir::Browser.new(
     :remote,
+    :http_client => Selenium::WebDriver::Remote::Http::Persistent.new,
     :url => "http://#{saucelabs_username}:#{saucelabs_key}@ondemand.saucelabs.com:80/wd/hub",
     :desired_capabilities => caps)
 
