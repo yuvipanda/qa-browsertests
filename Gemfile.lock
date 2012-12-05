@@ -33,16 +33,8 @@ GEM
     parallel_tests (0.8.14)
       parallel
     rake (10.0.2)
-    require_all (1.2.1)
-    rspec (2.12.0)
-      rspec-core (~> 2.12.0)
-      rspec-expectations (~> 2.12.0)
-      rspec-mocks (~> 2.12.0)
-    rspec-core (2.12.1)
     rspec-expectations (2.12.0)
       diff-lcs (~> 1.1.3)
-    rspec-extra-formatters (1.0.0)
-    rspec-mocks (2.12.0)
     rubyzip (0.9.9)
     selenium-webdriver (2.26.0)
       childprocess (>= 0.2.5)
@@ -60,14 +52,10 @@ PLATFORMS
 
 DEPENDENCIES
   chunky_png
-  ci_reporter
   cucumber
-  json
   net-http-persistent
   page-object
   parallel_tests
   rake
-  require_all
-  rspec
-  rspec-extra-formatters
+  rspec-expectations
   syntax

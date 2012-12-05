@@ -2,7 +2,6 @@
 require "bundler/setup"
 require "page-object"
 require "page-object/page_factory"
-require "require_all"
 require "watir-webdriver"
 require "yaml"
 
