@@ -1,10 +1,9 @@
-# encoding: utf-8
-
 class ProofreadPage
   include PageObject
 
   page_url 'https://en.wikisource.org/w/index.php?title=Page:United_States_Statutes_at_Large_Volume_43_Part_2.djvu/153'
-  link(:edit, :text => 'Edit')
+
+  a(:edit, :text => 'Edit')
   #after clicking Edit
   text_area(:article_text, :id => 'wpTextbox1')
   a(:bold, :title => 'Bold')
@@ -13,15 +12,15 @@ class ProofreadPage
   a(:signature, :title => 'Signature and timestamp')
   span(:link_page, :title => 'Link')
   span(:reference, :title => 'Reference')
-  image(:ocr, :id => 'wsOcr1')
+  img(:ocr, :id => 'wsOcr1')
 
   #collapsible links display additional features
-  link(:advanced, :text => 'Advanced')
+  a(:advanced, :text => 'Advanced')
   div(:advanced_toolbar, :class => 'section-advanced')
-  link(:level2, :text => 'Level 2')
-  link(:level2, :text => 'Level 3')
-  link(:level2, :text => 'Level 4')
-  link(:level2, :text => 'Level 5')
+  a(:level2, :text => 'Level 2')
+  a(:level2, :text => 'Level 3')
+  a(:level2, :text => 'Level 4')
+  a(:level2, :text => 'Level 5')
   span(:bulleted, :title => 'Bulleted list')
   span(:numbered, :title => 'Numbered list')
   span(:indent, :title => 'Indentation')
@@ -36,7 +35,7 @@ class ProofreadPage
   span(:table, :title => 'Table')
 
   #define the first 3 char sets and the first char in each
-  link(:special, :text => 'Special characters')
+  a(:special, :text => 'Special characters')
   div(:latin, :text => 'Latin')
   span(:latin_a, :text => 'Á')
   div(:latin_extended, :text => 'Latin extended')
@@ -45,15 +44,15 @@ class ProofreadPage
   span(:ipa_p, :text => 'p')
 
   #define the first 3 help links
-  link(:help, :text => 'Help')
-  link(:formatting, :text => 'Formatting')
-  link(:links_help, :text => 'Links')
-  link(:headings, :text => 'Headings')
+  a(:help, :text => 'Help')
+  a(:formatting, :text => 'Formatting')
+  a(:links_help, :text => 'Links')
+  a(:headings, :text => 'Headings')
 
-  link(:proofread, :text => 'Proofread tools')
-  image(:zoom_in, :title => 'Zoom in')
-  image(:zoom_out, :title => 'Zoom out')
-  image(:original_size, :title => 'Original size')
-  #image(:show_hide, :title, => "Show/hide this page's header and footer")
-  image(:vertical_horizontal, :title => 'Vertical/horizontal layout')
+  a(:proofread, :text => 'Proofread tools')
+  img(:zoom_in, :title => 'Zoom in')
+  img(:zoom_out, :title => 'Zoom out')
+  img(:original_size, :title => 'Original size')
+  #img(:show_hide, :title, => "Show/hide this page's header and footer")
+  img(:vertical_horizontal, :title => 'Vertical/horizontal layout')
 end

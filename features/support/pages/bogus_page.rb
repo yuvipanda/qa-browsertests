@@ -1,14 +1,11 @@
 class BogusPage
   include PageObject
+  include URLModule
 
-  if ENV['BROWSER_NAME'] == "android" or  ENV['BROWSER_NAME'] == "iphone"
-    site = "testm"
-  else
-    site = "test"
+  def self.url
+    URLModule.url("Bogus_page")
   end
-
-  config = YAML.load_file('config/config.yml')
-  page_url "#{config['base_url'][site]}Bogus_page"
+  page_url url
 
   a(:search_for_page, :text => 'search for Bogus page in Wikipedia')
 end
