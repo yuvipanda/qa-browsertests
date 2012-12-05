@@ -1,7 +1,7 @@
 Feature: Edit
 
   Background:
-    Given I am at a random page
+    Given I am at Unix page
     When I click edit
 
   Scenario: Go to edit page

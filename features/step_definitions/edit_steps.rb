@@ -1,5 +1,5 @@
-Given /^I am at a random page$/ do
-  visit RandomPage
+Given /^I am at Unix page$/ do
+  visit UnixPage
 end
 
 When /^I click edit$/ do
