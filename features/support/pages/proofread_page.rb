@@ -26,7 +26,7 @@ class ProofreadPage
   span(:bulleted, title: 'Bulleted list')
   span(:numbered, title: 'Numbered list')
   span(:indent, title: 'Indentation')
-  span(:nowiki, title: "No wiki formatting")
+  span(:nowiki, title: 'No wiki formatting')
   span(:newline, title: 'New line')
   span(:big, title: 'Big')
   span(:small, title: 'Small')

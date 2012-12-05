@@ -1,52 +1,52 @@
 
 require 'spec_helper'
 
-describe "Logging into the system" do
+describe 'Logging into the system' do
   before(:each) do
     visit LoginPage
   end
 
-  context "successful login" do
-    it "should display welcome message" do
+  context 'successful login' do
+    it 'should display welcome message' do
       on(LoginPage) do |page|
         page.login_with('foo', 'bar')
-        #page.text.should include "Welcome foo"
-        page.text.should include "Secure your account"
-        page.text.should include "phishing"
+        #page.text.should include 'Welcome foo'
+        page.text.should include 'Secure your account'
+        page.text.should include 'phishing'
       end
     end
   end
 
-  context "unsuccessful login" do
-    it "should display an error messge" do
+  context 'unsuccessful login' do
+    it 'should display an error messge' do
       on(LoginPage) do |page|
         page.login_with('foo', 'badpass')
-        page.text.should include "Login error"
-        page.text.should include "Secure your account"
+        page.text.should include 'Login error'
+        page.text.should include 'Secure your account'
       end
     end
   end
-  
-  context "check login page links" do
-    it "should demonstrate all the defined links exist" do 
+
+  context 'check login page links' do
+    it 'should demonstrate all the defined links exist' do
       on(LoginPage) do |page|
         page.phishing_element.should be_true
         page.password_strength_element.should be_true
       end
     end
   end
-  
-  context "visit login page links" do
-    it "should follow all the defined links" do 
+
+  context 'visit login page links' do
+    it 'should follow all the defined links' do
       on(LoginPage) do |page|
         page.phishing.should be_true
-        page.text.should include "Not to be confused with"
+        page.text.should include 'Not to be confused with'
       end
       visit(LoginPage) do |page|
         page.password_strength.should be_true
-        page.text.should include "measure of the effectiveness"
+        page.text.should include 'measure of the effectiveness'
       end
     end
   end
-  
+
 end

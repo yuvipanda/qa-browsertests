@@ -19,7 +19,7 @@ def browser(environment)
   end
 end
 def environment(folder)
-  if folder.match Regexp.escape("/scratch/jenkins/workspace/")
+  if folder.match Regexp.escape('/scratch/jenkins/workspace/')
     :cloudbees
   else
     :local

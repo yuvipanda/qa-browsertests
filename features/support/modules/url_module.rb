@@ -5,7 +5,7 @@ module URLModule
     if ENV['BASE_URL']
       ENV['BASE_URL']
     else
-      "test2"
+      'test2'
     end
   end
   def self.url(page)

@@ -2,7 +2,7 @@ class MobilePage
   include PageObject
 
   def self.url
-    base_url = "wikipediam"
+    base_url = 'wikipediam'
 
     config = YAML.load_file('config/config.yml')
     config['base_url'][base_url]

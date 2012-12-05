@@ -1,9 +1,9 @@
 # before all
-require "bundler/setup"
-require "page-object"
-require "page-object/page_factory"
-require "watir-webdriver"
-require "yaml"
+require 'bundler/setup'
+require 'page-object'
+require 'page-object/page_factory'
+require 'watir-webdriver'
+require 'yaml'
 
 World(PageObject::PageFactory)
 
@@ -15,7 +15,7 @@ def browser(environment, test_name, saucelabs_username, saucelabs_key)
   end
 end
 def environment
-  if ENV['ENVIRONMENT'] == "cloudbees"
+  if ENV['ENVIRONMENT'] == 'cloudbees'
     :cloudbees
   else
     :local
@@ -33,7 +33,7 @@ def sauce_browser(test_name, saucelabs_username, saucelabs_key)
   caps.version = browser_label['version']
   caps[:name] = "#{test_name} #{ENV['JOB_NAME']}##{ENV['BUILD_NUMBER']}"
 
-  require "selenium/webdriver/remote/http/persistent" # http_client
+  require 'selenium/webdriver/remote/http/persistent' # http_client
   browser = Watir::Browser.new(
     :remote,
     http_client: Selenium::WebDriver::Remote::Http::Persistent.new,
@@ -41,7 +41,7 @@ def sauce_browser(test_name, saucelabs_username, saucelabs_key)
     desired_capabilities: caps)
 
   browser.wd.file_detector = lambda do |args|
-    # args => ["/path/to/file"]
+    # args => ['/path/to/file']
     str = args.first.to_s
     str if File.exist?(str)
   end
@@ -73,6 +73,6 @@ Before do |scenario|
 end
 
 After do |scenario|
-  %x{curl -H "Content-Type:text/json" -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}} if environment == :cloudbees
-  @browser.close
+  %x{curl -H 'Content-Type:text/json' -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}} if environment == :cloudbees
+  #@browser.close
 end

@@ -1,7 +1,7 @@
 Given /^I am at an AFTv5 page$/ do
   visit AFTv5Page
   # http://www.mediawiki.org/wiki/Article_feedback/Version_5/Feature_Requirements#Platforms
-  pending if ENV['BROWSER_LABEL'] == "internet_explorer_6"
+  pending if ENV['BROWSER_LABEL'] == 'internet_explorer_6'
 end
 
 When /^I click Whats this$/ do
@@ -16,7 +16,7 @@ When /^I click Yes$/ do
 end
 When /^I click Yes and No$/ do
   # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551
-  pending if ENV['BROWSER_LABEL'] == "internet_explorer_9"
+  pending if ENV['BROWSER_LABEL'] == 'internet_explorer_9'
 
   on(AFTv5Page) do |page|
     page.yes_element.exists?
@@ -54,16 +54,16 @@ Then /^I can always return to AFTv5 input$/ do
 end
 Then /^I can enter and save text$/ do
   # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551
-  pending if ENV['BROWSER_LABEL'] == "internet_explorer_9"
+  pending if ENV['BROWSER_LABEL'] == 'internet_explorer_9'
 
   on(AFTv5Page) do |page|
     @input_string = "Automated test did this #{('a' .. 'z').to_a.shuffle[0,10].join}"
     page.input_area_element.send_keys "Hello from #{@input_string}"
     page.post_feedback_element.when_present.click
     page.wait_until(10) do
-      page.text.include? "Thanks!"
+      page.text.include? 'Thanks!'
     end
-    page.text.should include "Your post can be viewed on this feedback page."
+    page.text.should include 'Your post can be viewed on this feedback page.'
     #ONLY ANONS GET 'CREATE ACCOUNT'/LOG IN MESSAGE
     page.create_account_element.should be_true
     page.log_in_element.should be_true
@@ -77,7 +77,7 @@ Then /^I have links to Learn more and View Article$/ do
 end
 Then /^I see a floating text window with Learn more link$/ do
   on(AFTv5Page) do |page|
-    page.text.should include "Wikipedia would like to hear what you think of this article. Share your feedback with the editors -- and help improve this page"
+    page.text.should include 'Wikipedia would like to hear what you think of this article. Share your feedback with the editors -- and help improve this page'
     page.learn_more_element.should be_true
   end
 end

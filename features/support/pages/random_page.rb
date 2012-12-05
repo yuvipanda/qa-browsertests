@@ -3,7 +3,7 @@ class RandomPage
   include URLModule
 
   def self.url
-    URLModule.url("Special:Random")
+    URLModule.url('Special:Random')
   end
   page_url url
 

@@ -1,7 +1,7 @@
 class LoginPage
   include PageObject
 
-  page_url "<%=params[:base_url]%>Special:UserLogin"
+  page_url '<%=params[:base_url]%>Special:UserLogin'
 
   div(:feedback, class: 'errorbox')
   button(:login, id: 'wpLoginAttempt')
@@ -11,7 +11,7 @@ class LoginPage
   text_field(:username, id: 'wpName1')
 
   def logged_in_as_element
-    @browser.div(id: "mw-content-text").p.b
+    @browser.div(id: 'mw-content-text').p.b
   end
   def login_with(username, password)
     self.username = username

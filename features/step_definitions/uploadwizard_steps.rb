@@ -27,21 +27,21 @@ When /^I click This file is my own work$/ do
   on(ReleaseRightsPage).my_own_work_element.click
 end
 When /^I enter description$/ do
-  on(DescribePage).description = "description"
+  on(DescribePage).description = 'description'
 end
 When /^I enter title$/ do
   on(DescribePage).title = Random.new.rand
 end
 When /^I navigate to Upload Wizard$/ do
   visit(UploadWizardPage) do |page|
-    page.text.include? "Thanks for using our new upload tool!Help with translations"
+    page.text.include? 'Thanks for using our new upload tool!Help with translations'
     page.tutorial_map.should be_true
   end
 end
 When /^upload file (.+)$/ do |file_name|
-  require "chunky_png"
+  require 'chunky_png'
   ChunkyPNG::Image.new(Random.new.rand(255), Random.new.rand(255), Random.new.rand(255)).save file_name
-  path = Dir.pwd + "/" + file_name
+  path = Dir.pwd + '/' + file_name
   if @browser.driver.browser == :chrome
     @browser.execute_script 'document.getElementsByName("file")[0].removeAttribute("class");'
     @browser.execute_script 'document.getElementsByName("file")[0].removeAttribute("style");'

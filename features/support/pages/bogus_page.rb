@@ -3,7 +3,7 @@ class BogusPage
   include URLModule
 
   def self.url
-    URLModule.url("Bogus_page")
+    URLModule.url('Bogus_page')
   end
   page_url url
 

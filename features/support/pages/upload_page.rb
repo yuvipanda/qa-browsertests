@@ -3,7 +3,7 @@ class UploadPage
   include URLModule
 
   def self.url
-    URLModule.url("Special:UploadWizard")
+    URLModule.url('Special:UploadWizard')
   end
   page_url url
 
