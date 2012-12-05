@@ -3,7 +3,7 @@ Given /^I am at Unix page$/ do
 end
 
 When /^I click edit$/ do
-  on(RandomPage).edit
+  on(UnixPage).edit
 end
 When /^I click the Read Link$/ do
   on(EditPage).read

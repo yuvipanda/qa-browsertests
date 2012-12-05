@@ -6,4 +6,6 @@ class UnixPage
     URLModule.url('Unix')
   end
   page_url url
+
+  a(:edit, text: 'Edit')
 end
