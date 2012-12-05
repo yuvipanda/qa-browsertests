@@ -1,4 +1,4 @@
-task :default => :serial
+task default: :serial
 
 # cucumber needs this
 require "cucumber/rake/task"

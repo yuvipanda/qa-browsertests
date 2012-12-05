@@ -43,8 +43,8 @@ def sauce_browser
   secret = YAML.load_file('config/secret.yml')
   Watir::Browser.new(
     :remote,
-    :url => "http://#{secret['username']}:#{secret['key']}@ondemand.saucelabs.com:80/wd/hub",
-    :desired_capabilities => caps)
+    url: "http://#{secret['username']}:#{secret['key']}@ondemand.saucelabs.com:80/wd/hub",
+    desired_capabilities: caps)
 end
 
 RSpec.configure do |config|

@@ -9,7 +9,7 @@ class MobilePage
   end
   page_url url
 
-  text_field(:search_box, :id => 'mw-mf-search')
-  a(:watch_link, :class => 'watch-this-article')
-  a(:watched_link, :class => 'watch-this-article watched')
+  text_field(:search_box, id: 'mw-mf-search')
+  a(:watch_link, class: 'watch-this-article')
+  a(:watched_link, class: 'watch-this-article watched')
 end
