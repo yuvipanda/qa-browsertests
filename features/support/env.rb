@@ -74,5 +74,5 @@ end
 
 After do |scenario|
   %x{curl -H 'Content-Type:text/json' -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}} if environment == :cloudbees
-  #@browser.close
+  @browser.close
 end
