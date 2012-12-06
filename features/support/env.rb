@@ -59,7 +59,7 @@ end
 config = YAML.load_file('config/config.yml')
 mediawiki_username = config['mediawiki_username']
 
-secret = YAML.load_file('config/secret.yml')
+secret = YAML.load_file('/private/wmf/secret.yml')
 mediawiki_password = secret['mediawiki_password']
 saucelabs_username = secret['saucelabs_username']
 saucelabs_key = secret['saucelabs_key']
