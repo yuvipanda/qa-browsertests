@@ -24,6 +24,9 @@ end
 def local_browser
   Watir::Browser.new :firefox
 end
+def sauce_api(json, saucelabs_username, saucelabs_key)
+  %x{curl -H 'Content-Type:text/json' -s -X PUT -d '#{json}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}}
+end
 def sauce_browser(test_name, saucelabs_username, saucelabs_key)
   config = YAML.load_file('config/config.yml')
   browser_label = config[ENV['BROWSER_LABEL']]
@@ -74,8 +77,8 @@ end
 
 After do |scenario|
   if environment == :cloudbees
-    %x{curl -H 'Content-Type:text/json' -s -X PUT -d '{"passed": #{scenario.passed?}}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}}
-    %x{curl -H 'Content-Type:text/json' -s -X PUT -d '{"public": true}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}}
+    sauce_api(%Q{{"passed": #{scenario.passed?}}}, saucelabs_username, saucelabs_key)
+    sauce_api(%Q{{"public": true}}, saucelabs_username, saucelabs_key)
   end
   @browser.close
 end
