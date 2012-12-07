@@ -19,5 +19,5 @@ And /^I click the Search button$/ do
 end
 
 Then /^I should land on Search Results page$/ do
-  @browser.url.should match '&button=&title=Special%3ASearch$'
+  @browser.url.should match '&title=Special%3ASearch$'
 end
