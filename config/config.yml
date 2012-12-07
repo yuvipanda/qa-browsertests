@@ -22,7 +22,7 @@ chrome:
 firefox:
   name: firefox
   platform: Linux
-  version: 16
+  version: 17
 
 internet_explorer_6:
   name: internet_explorer
@@ -52,9 +52,9 @@ internet_explorer_10:
 ipad:
   name: ipad
   platform: Mac 10.6
-  version: 5
+  version: 6
 
 iphone:
   name: iphone
   platform: Mac 10.6
-  version: 5
+  version: 6
