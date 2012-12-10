@@ -51,10 +51,10 @@ internet_explorer_10:
 
 ipad:
   name: ipad
-  platform: Mac 10.6
+  platform: Mac 10.8
   version: 6
 
 iphone:
   name: iphone
-  platform: Mac 10.6
+  platform: Mac 10.8
   version: 6
