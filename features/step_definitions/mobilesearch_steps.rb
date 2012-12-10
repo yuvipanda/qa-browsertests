@@ -4,19 +4,16 @@ Given /^I am on the Mobile website$/ do
   end
 end
 
-When /^I type three known characters$/ do
+When /^I type (.+)$/ do |search_term|
   on(MobilePage) do |page|
     page.search_box_element.should be_true
-    page.search_box='san'
+    page.search_box= search_term
   end
 end
 
-Then /^Search results matching my characters appear$/ do
+Then /^Search results should contain (.+)$/ do |text|
   # http://www.mediawiki.org/wiki/Mobile/Testing_process#SmartPhone
   pending if ENV['BROWSER_LABEL'] and ENV['BROWSER_LABEL'].match /internet_explorer_(6|7|10)/
-  on(MobilePage) do |page|
-    page.wait_until(10) do
-      page.text.include? 'San Francisco'
-    end
-  end
+
+  on(MobilePage).search_result_element.when_present.text.should == text
 end

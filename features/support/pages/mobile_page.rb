@@ -10,6 +10,7 @@ class MobilePage
   page_url url
 
   text_field(:search_box, id: 'mw-mf-search')
+  a(:search_result, class: 'search-result-item')
   a(:watch_link, class: 'watch-this-article')
   a(:watched_link, class: 'watch-this-article watched')
 end
