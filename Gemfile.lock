@@ -30,7 +30,7 @@ GEM
     parallel (0.5.21)
     parallel_tests (0.8.14)
       parallel
-    rake (10.0.2)
+    rake (10.0.3)
     rspec-expectations (2.12.0)
       diff-lcs (~> 1.1.3)
     rubyzip (0.9.9)
