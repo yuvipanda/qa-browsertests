@@ -33,10 +33,8 @@ When /^I enter title$/ do
   on(DescribePage).title = Random.new.rand
 end
 When /^I navigate to Upload Wizard$/ do
-  visit(UploadWizardPage) do |page|
-    page.text.include? 'Thanks for using our new upload tool!Help with translations'
-    page.tutorial_map.should be_true
-  end
+  # TODO: add more checks for this page
+  visit(UploadWizardPage).tutorial_map.should be_true
 end
 When /^upload file (.+)$/ do |file_name|
   require 'chunky_png'
