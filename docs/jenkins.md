@@ -1,4 +1,4 @@
-# Jenkins setup
+# Jenkins
 
 ## Git
 
