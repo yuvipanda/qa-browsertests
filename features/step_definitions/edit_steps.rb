@@ -13,15 +13,17 @@ When /^I click the View History Link$/ do
 end
 
 Then /^Edit controls should be there$/ do
-  on(EditPage) do |page|
+  if ENV['BROWSER_LABEL'] == 'internet_explorer_6'
+    edit_page = EditPageIE6
+  else
+    edit_page = EditPage
+  end
+  on(edit_page) do |page|
     page.bold_element.should exist
     page.italic_element.should exist
     page.sig_element.should exist
     page.link_element.should exist
     page.embedded_element.should exist
-    page.reference_element.should exist
-    page.advanced_element.should exist
-    page.special_element.should exist
   end
 end
 Then /^Edit controls should not be there$/ do
