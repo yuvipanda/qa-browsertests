@@ -38,10 +38,10 @@
           - ipad
           - iphone
 
-## Rake
+## bundle exec
 
-  - ID: RAKE
-    - Display Name: Rake
+  - ID: BUNDLE_EXEC
+    - Display Name: bundle exec
     - Type: Text-field
 
 ## Recipients
@@ -143,7 +143,7 @@
 
     gem install bundler --no-ri --no-rdoc
     bundle install
-    bundle exec rake ${RAKE}</command>
+    bundle exec ${BUNDLE_EXEC}</command>
         </hudson.tasks.Shell>
       </builders>
       <publishers>
