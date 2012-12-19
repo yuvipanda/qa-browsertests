@@ -42,6 +42,7 @@ Then /^Edit link should be there$/ do
   on(EditPage).read_element.should exist
 end
 Then /^edit page should open$/ do
+  on(EditPage).save_element.when_present
   @browser.url.should match Regexp.escape('&action=edit')
 end
 Then /^Preview button should be there$/ do
