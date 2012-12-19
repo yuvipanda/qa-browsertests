@@ -64,6 +64,20 @@
     - Display Name: Cloudbees
     - Value: git://git.cloudbees.com/wmf/browsertests.git
 
+## Branch
+
+- ID: BRANCH
+  - Display Name: Branch
+  - Type: Select a string among many
+  - UI Mode: Dropdown list (no inline help, but more compact UI)
+  - Options
+    - Display Name: (name)
+    - Value: (name)
+
+    - name:
+      - master
+      - debug
+
 ## Jelly-based transformation
 
 - Property
@@ -108,7 +122,7 @@
         </userRemoteConfigs>
         <branches>
           <hudson.plugins.git.BranchSpec>
-            <name>**</name>
+            <name>${BRANCH}</name>
           </hudson.plugins.git.BranchSpec>
         </branches>
         <disableSubmodules>false</disableSubmodules>
