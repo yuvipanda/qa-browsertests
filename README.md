@@ -25,3 +25,5 @@ GitHub mirror is at https://github.com/wikimedia/qa-browsertests
 Jenkins is hosted at https://wmf.ci.cloudbees.com/
 
 Tests are running at http://saucelabs.com/
+
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/wikimedia/qa-browsertests)
