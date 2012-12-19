@@ -50,6 +50,20 @@
   - Display Name: Recipients
   - Type: Text-field
 
+## Repository URL
+
+- ID: REPOSITORY_URL
+  - Display Name: Repository URL
+  - Type: Select a string among many
+  - UI Mode: Dropdown list (no inline help, but more compact UI)
+  - Options
+
+    - Display Name: Gerrit
+    - Value: ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git
+
+    - Display Name: Cloudbees
+    - Value: git://git.cloudbees.com/wmf/browsertests.git
+
 ## Jelly-based transformation
 
 - Property
@@ -89,7 +103,7 @@
           <hudson.plugins.git.UserRemoteConfig>
             <name></name>
             <refspec></refspec>
-            <url>ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git</url>
+            <url>${REPOSITORY_URL}</url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
