@@ -58,11 +58,17 @@
   - UI Mode: Dropdown list (no inline help, but more compact UI)
   - Options
 
-    - Display Name: Gerrit
+    - Display Name: browsertests@gerrit
     - Value: ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git
 
-    - Display Name: Cloudbees
+    - Display Name: browsertests@cloudbees
     - Value: git://git.cloudbees.com/wmf/browsertests.git
+
+    - Display Name: MobileFrontend@gerrit
+    - Value: ssh://Zfilipin@gerrit.wikimedia.org:29418/mediawiki/extensions/MobileFrontend
+
+    - Display Name: MobileFrontend@cloudbees
+    - Value: ssh://git@git.cloudbees.com/wmf/MobileFrontend.git
 
 ## Branch
 
