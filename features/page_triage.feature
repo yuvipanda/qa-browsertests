@@ -11,5 +11,5 @@ Feature: PageTriage
     Given I am at the NewPagesFeed page
     When I click Set filters
     Then I should be able to set many checkboxes for filtering new pages
-
-
+      And I should see namespace selectbox
+      And I should see Username text field
