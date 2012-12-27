@@ -24,9 +24,9 @@ GEM
       websocket
     multi_json (1.5.0)
     net-http-persistent (2.8)
-    page-object (0.7.6)
-      selenium-webdriver (>= 2.26.0)
-      watir-webdriver (>= 0.6.1)
+    page-object (0.8)
+      selenium-webdriver (>= 2.27.2)
+      watir-webdriver (>= 0.6.2)
     parallel (0.6.1)
     parallel_tests (0.8.14)
       parallel
