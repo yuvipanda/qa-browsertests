@@ -22,6 +22,8 @@ Code is pushed to https://gerrit.wikimedia.org/r/gitweb?p=qa/browsertests.git;a=
 
 GitHub mirror is at https://github.com/wikimedia/qa-browsertests
 
+Mobile tests are in `tests/acceptance` folder of [MobileFrontend](https://github.com/wikimedia/mediawiki-extensions-MobileFrontend) extension.
+
 Jenkins is hosted at https://wmf.ci.cloudbees.com/
 
 Tests are running at http://saucelabs.com/
