@@ -1,7 +1,7 @@
 Given /^I am at the NewPagesFeed page$/ do
   visit PageTriagePage
-  # this still fails for IE7 because of https://bugzilla.wikimedia.org/show_bug.cgi?id=43598
-  pending if ENV['BROWSER_LABEL'] == 'internet_explorer_6'
+  # this still fails for IE 6 and 7 because of https://bugzilla.wikimedia.org/show_bug.cgi?id=43598
+  pending if ENV['BROWSER_LABEL'] and ENV['BROWSER_LABEL'].match /internet_explorer_(6|7)/
 end
 
 When /^I click Set filters$/ do
