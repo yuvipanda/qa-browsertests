@@ -1,7 +1,5 @@
 Given /^I am at an AFTv5 page$/ do
   visit AFTv5Page
-  # http://www.mediawiki.org/wiki/Article_feedback/Version_5/Feature_Requirements#Platforms
-  pending if ENV['BROWSER_LABEL'] == 'internet_explorer_6'
 end
 
 When /^I click Whats this$/ do
@@ -15,9 +13,6 @@ When /^I click Yes$/ do
   end
 end
 When /^I click Yes and No$/ do
-  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551
-  pending if ENV['BROWSER_LABEL'] == 'internet_explorer_9'
-
   on(AFTv5Page) do |page|
     page.yes_element.exists?
     page.yes_element.when_present.click
@@ -53,9 +48,6 @@ Then /^I can always return to AFTv5 input$/ do
   end
 end
 Then /^I can enter and save text$/ do
-  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551
-  pending if ENV['BROWSER_LABEL'] == 'internet_explorer_9'
-
   on(AFTv5Page) do |page|
     @input_string = "Automated test did this #{('a' .. 'z').to_a.shuffle[0,10].join}"
     page.input_area_element.send_keys "Hello from #{@input_string}"
@@ -88,9 +80,6 @@ Then /^I see helpful feedback guide and terms$/ do
   end
 end
 Then /^When I click to navigate to comments page my saved comment appears$/ do
-  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42517
-  pending if ENV['BROWSER_LABEL'] and ENV['BROWSER_LABEL'].match /internet_explorer_(7|8|10)/
-
   on(AFTv5Page) do |page|
     page.wait_until(10) do
       page.all_comments_element.visible?

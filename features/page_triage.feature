@@ -1,3 +1,5 @@
+# https://bugzilla.wikimedia.org/show_bug.cgi?id=43598
+@ie6-bug @ie7-bug
 Feature: PageTriage
 
   Scenario: Check that NewPagesFeed has correct controls for anonymous user
