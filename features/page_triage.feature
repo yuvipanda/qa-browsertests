@@ -1,6 +1,6 @@
 Feature: PageTriage
 
-  Scenario: Check that NewPagesFeed has correct controls for anon
+  Scenario: Check that NewPagesFeed has correct controls for anonymous user
     Given I am at the NewPagesFeed page
     Then I should see a Learn more link
       And I should see a Leave feedback link
