@@ -2,25 +2,19 @@
 
 - Jenkins > New Job
   - Job name: (name)
-  - Build multi-configuration project
+  - Build a free-style software project
   - OK
 - Jenkins > Job > Configure
   - Project name: (name)
-  - Source Code Management > Git > Repositories > Repository URL: ssh://zfilipin@gerrit.wikimedia.org:29418/qa/browsertests.git
-  - Build Triggers > Build periodically	> Schedule
-    - desktop: 0 20,23 * * *
-    - mobile:  5 20,23 * * *
-  - Configuration Matrix > Add axis > User-defined Axis
-    - Name: BROWSER_LABEL
-    - Values
-      - desktop: chrome firefox internet_explorer_6 internet_explorer_7 internet_explorer_8 internet_explorer_9 internet_explorer_10
-      - mobile:  android ipad iphone
+  - Source Code Management > Git > Repositories > Repository URL: (repository)
   - Build > Add build step > Execute shell
 
 --
 
-    export BASE_URL=test2
-    export ENVIRONMENT=cloudbees
+    export BROWSER_LABEL=(label)
+    export ENVIRONMENT=(environment)
+    export BASE_URL=(url)
+    export MEDIAWIKI_URL=(url)
 
     curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/ruby/use-ruby
     RUBY_VERSION=1.9.3-p327 \
@@ -28,14 +22,10 @@
 
     gem install bundler --no-ri --no-rdoc
     bundle install
+    bundle exec rake
 
 --
 
-  - Execute shell:
-    - desktop: `bundle exec rake parallel`
-    - mobile: `bundle exec rake mobile`
   - Post-build Actions > Add post-build action
     - Publish JUnit test result report > Test report XMLs: reports/junit/*.xml
-    - E-mail Notification > Recipients
-      - desktop: zfilipin cmcmahon at wikimedia
-      - mobile: zfilipin cmcmahon mgrover at wikimedia
+    - E-mail Notification > Recipients: (recipients)
