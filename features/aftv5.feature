@@ -6,8 +6,6 @@ Feature: AFTv5
     Given I am at an AFTv5 page
     Then AFTv5 should be there
 
-  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551
-  @ie9-bug
   Scenario: Click Yes return and click No
     Given I am at an AFTv5 page
     When I click Yes and No
@@ -23,9 +21,8 @@ Feature: AFTv5
     When I click Yes
     Then I see helpful feedback guide and terms
 
-  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42551 ie9
   # https://bugzilla.wikimedia.org/show_bug.cgi?id=42517 ie7 ie8 ie10
-  @ie9-bug @ie7-bug @ie8-bug @ie10-bug
+  @ie7-bug  @ie8-bug @ie10-bug
   Scenario: Click yes and leave feedback
     Given I am at an AFTv5 page
     When I click Yes
