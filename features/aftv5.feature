@@ -21,8 +21,8 @@ Feature: AFTv5
     When I click Yes
     Then I see helpful feedback guide and terms
 
-  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42517 ie7 ie8 ie10
-  @ie7-bug  @ie8-bug @ie10-bug
+  # https://bugzilla.wikimedia.org/show_bug.cgi?id=42517
+  @ie7-bug @ie10-bug
   Scenario: Click yes and leave feedback
     Given I am at an AFTv5 page
     When I click Yes
