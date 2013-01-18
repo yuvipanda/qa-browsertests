@@ -1,4 +1,4 @@
-class DoesNotExistPage
+class ArticlePage
   include PageObject
   include URLModule
 
@@ -7,6 +7,9 @@ class DoesNotExistPage
   end
   page_url url
 
-  a(:create, text: 'Create')
+  a(:discussion, text: 'Discussion')
+  a(:edit, text: 'Edit')
   div(:page_text, id: 'mw-content-text')
+  h1(:title, id: 'firstHeading')
+  a(:watchlist, text: 'Unwatch')
 end

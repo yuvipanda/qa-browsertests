@@ -39,7 +39,7 @@ Then /^Edit controls should not be there$/ do
   end
 end
 Then /^Edit link should be there$/ do
-  on(EditPage).read_element.should exist
+  on(EditPage).edit_element.should exist
 end
 Then /^edit page should open$/ do
   on(EditPage).save_element.when_present
