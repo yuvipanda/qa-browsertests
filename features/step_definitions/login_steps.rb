@@ -20,7 +20,7 @@ When /^Log in as (.+)$/ do |username|
 end
 
 Then /^feedback should be (.+)$/ do |feedback|
-  on(LoginPage).feedback.should match feedback
+  on(LoginPage).feedback.should match Regexp.escape(feedback)
 end
 Then /^Log in element should be there$/ do
   on(LoginPage).login_element.should exist
