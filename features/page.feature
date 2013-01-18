@@ -9,6 +9,7 @@ Feature: Page
     Given I am at page that does not exist
     When I click link Create
     Then edit page should open
+      And text box with page text should be there
       And Save button should be there
       And Preview button should be there
       And Show Changes button should be there

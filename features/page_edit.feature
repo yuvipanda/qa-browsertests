@@ -6,6 +6,7 @@ Feature: Edit
 
   Scenario: Go to edit page
     Then edit page should open
+      And text box with page text should be there
       And Save button should be there
       And Preview button should be there
       And Show Changes button should be there

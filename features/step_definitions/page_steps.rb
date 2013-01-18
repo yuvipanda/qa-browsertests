@@ -12,3 +12,6 @@ end
 Then /^page text should contain (.+)$/ do |text|
   on(DoesNotExistPage).page_text.should match Regexp.escape(text)
 end
+Then /^text box with page text should be there$/ do
+  on(EditPage).article_text_element.should exist
+end
