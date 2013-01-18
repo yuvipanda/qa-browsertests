@@ -6,6 +6,9 @@ end
 When /^I log in with incorrect password$/ do
   on(LoginPage).login_with(@mediawiki_username, 'incorrect password')
 end
+When /^I log in with incorrect username$/ do
+  on(LoginPage).login_with('incorrect username', @mediawiki_password)
+end
 When /^I log in without entering credentials$/ do
   on(LoginPage).login_with('', '')
 end

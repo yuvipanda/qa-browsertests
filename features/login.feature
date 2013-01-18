@@ -19,6 +19,11 @@ Feature: Log in
     Then Log in page should open
       And feedback should be Login error\nPassword entered was blank. Please try again.
 
+  Scenario: Log in with incorrect username
+    When I log in with incorrect username
+    Then Log in page should open
+    And feedback should be Login error\nThere is no user by the name \"incorrect username\". Usernames are case sensitive. Check your spelling, or create a new account.
+
   Scenario: Log in with incorrect password
     When I log in with incorrect password
     Then Log in page should open
