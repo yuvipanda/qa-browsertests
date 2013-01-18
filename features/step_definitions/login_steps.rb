@@ -6,6 +6,9 @@ end
 When /^I log in without entering credentials$/ do
   on(LoginPage).login_with('', '')
 end
+When /^I log in without entering password$/ do
+  on(LoginPage).login_with(@mediawiki_username, '')
+end
 When /^Log in as (.+)$/ do |username|
   on(LoginPage).login_with(username, @mediawiki_password)
 end
@@ -23,7 +26,7 @@ Then /^Password element should be there$/ do
   on(LoginPage).password_element.should exist
 end
 Then /^there should be text (.+)$/ do |text|
-  on(LoginPage).logged_in_as_element.text.should match text
+  on(LoginPage).logged_in_as_element.text.should == text
 end
 Then /^Username element should be there$/ do
   on(LoginPage).username_element.should exist
