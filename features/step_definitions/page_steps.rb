@@ -1,5 +1,5 @@
 Given /^I am at page that does not exist$/ do
-  visit DoesNotExistPage
+  visit(DoesNotExistPage, using_params: {page_name: @does_not_exist_page_name})
 end
 
 Then /^link Create should be there$/ do

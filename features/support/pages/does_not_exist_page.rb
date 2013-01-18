@@ -3,7 +3,7 @@ class DoesNotExistPage
   include URLModule
 
   def self.url
-    URLModule.url('Does_not_exist')
+    URLModule.url('<%=params[:page_name]%>')
   end
   page_url url
 

@@ -67,8 +67,11 @@ mediawiki_password = secret['mediawiki_password']
 saucelabs_username = secret['saucelabs_username']
 saucelabs_key = secret['saucelabs_key']
 
+does_not_exist_page_name = Random.new.rand
+
 Before do |scenario|
   @config = config
+  @does_not_exist_page_name = does_not_exist_page_name
   @mediawiki_username = mediawiki_username
   @mediawiki_password = mediawiki_password
   @browser = browser(environment, test_name(scenario), saucelabs_username, saucelabs_key)
