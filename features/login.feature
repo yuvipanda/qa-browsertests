@@ -15,6 +15,6 @@ Feature: Log in
       And feedback should be You have not specified a valid username.
 
   Scenario: Log in with valid credentials
-    When Log in with valid credentials
+    When Log in as Uploadwizardtest
     Then Log in page should open
-      And there should be text You are now logged in to Wikipedia as
+      And there should be text You are now logged in to Wikipedia as "Uploadwizardtest".

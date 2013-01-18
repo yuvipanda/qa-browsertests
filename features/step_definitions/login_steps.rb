@@ -6,8 +6,8 @@ end
 When /^I log in without entering credentials$/ do
   on(LoginPage).login_with('', '')
 end
-When /^Log in with valid credentials$/ do
-  on(LoginPage).login_with(@mediawiki_username, @mediawiki_password)
+When /^Log in as (.+)$/ do |username|
+  on(LoginPage).login_with(username, @mediawiki_password)
 end
 
 Then /^feedback should be (.+)$/ do |feedback|
