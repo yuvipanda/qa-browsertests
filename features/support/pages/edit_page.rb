@@ -4,6 +4,7 @@ class EditPage
   a(:advanced, text: 'Advanced')
   text_area(:article_text, id: 'wpTextbox1')
   a(:bold, text: 'Bold')
+  a(:edit, text: 'Edit')
   a(:embedded, text: 'Embedded file')
   a(:italic, text: 'Italic')
   a(:link, text: 'Link')
