@@ -3,6 +3,9 @@ Given /^I am at (.+) Log in page$/ do |site|
   visit(LoginPage, using_params: {base_url: base_url})
 end
 
+When /^I log in with incorrect password$/ do
+  on(LoginPage).login_with(@mediawiki_username, 'incorrect password')
+end
 When /^I log in without entering credentials$/ do
   on(LoginPage).login_with('', '')
 end

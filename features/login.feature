@@ -19,6 +19,11 @@ Feature: Log in
     Then Log in page should open
       And feedback should be Login error\nPassword entered was blank. Please try again.
 
+  Scenario: Log in with incorrect password
+    When I log in with incorrect password
+    Then Log in page should open
+      And feedback should be Login error\nIncorrect password entered. Please try again.
+
   Scenario: Log in with valid credentials
     When Log in as Uploadwizardtest
     Then Log in page should open
