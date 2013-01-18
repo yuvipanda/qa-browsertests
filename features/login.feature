@@ -5,7 +5,9 @@ Feature: Log in
 
   Scenario: Go to Log in page
     Then Log in page should open
-      And Log in button should be there
+      And Username element should be there
+      And Password element should be there
+      And Log in element should be there
 
   Scenario: Log in without entering credentials
     When I log in without entering credentials
