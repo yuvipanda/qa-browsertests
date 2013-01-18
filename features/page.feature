@@ -14,3 +14,16 @@ Feature: Page
       And Preview button should be there
       And Show Changes button should be there
       And Edit controls should be there
+
+  Scenario: Anonymous starts a new page using the URL
+    Given I am at page that does not exist
+    When I click link Create
+      And I enter article text
+      And I click Save page button
+    Then newly created page should open
+      And page title should be there
+      And page text should be there
+      And Discussion link should be there
+      And Edit link should be there
+      And View History link should be there
+      And watchlist element should not be there
