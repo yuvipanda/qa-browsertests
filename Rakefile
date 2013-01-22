@@ -1,3 +1,4 @@
+desc 'Run serial task.'
 task default: :serial
 
 # cucumber needs this
