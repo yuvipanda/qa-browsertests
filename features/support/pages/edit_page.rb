@@ -8,6 +8,7 @@ class EditPage
   a(:embedded, text: 'Embedded file')
   a(:italic, text: 'Italic')
   a(:link, text: 'Link')
+  img(:math_image, class: 'tex')
   button(:preview, id: 'wpPreview')
   a(:read, text: 'Read')
   a(:reference, text: 'Reference')
