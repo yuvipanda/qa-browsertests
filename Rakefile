@@ -44,3 +44,8 @@ desc 'Run all Cucumber features in parallel, do not run tests that have known bu
 task :ie10 do |t|
   run_tests(t.name)
 end
+
+desc 'Run all Cucumber features in parallel, do not run tests that have known bugs in PhantomJS.'
+task :phantomjs do |t|
+  run_tests(t.name)
+end

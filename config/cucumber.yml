@@ -5,3 +5,4 @@ ie7: --format Cucumber::Formatter::Sauce --out reports/junit --format html --out
 ie8: --format Cucumber::Formatter::Sauce --out reports/junit --format html --out reports/cucumber<%= ENV['TEST_ENV_NUMBER'] %>.html --tags ~@ie8-bug
 ie9: --format Cucumber::Formatter::Sauce --out reports/junit --format html --out reports/cucumber<%= ENV['TEST_ENV_NUMBER'] %>.html --tags ~@ie9-bug
 ie10: --format Cucumber::Formatter::Sauce --out reports/junit --format html --out reports/cucumber<%= ENV['TEST_ENV_NUMBER'] %>.html --tags ~@ie10-bug
+phantomjs: --format Cucumber::Formatter::Sauce --out reports/junit --format html --out reports/cucumber<%= ENV['TEST_ENV_NUMBER'] %>.html --tags ~@phantomjs-bug

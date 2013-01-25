@@ -1,5 +1,5 @@
 # http://www.mediawiki.org/wiki/Article_feedback/Version_5/Feature_Requirements#Platforms
-@ie6-bug
+@ie6-bug @phantomjs-bug
 Feature: AFTv5
 
   Scenario: Check if AFTv5 is on the page
