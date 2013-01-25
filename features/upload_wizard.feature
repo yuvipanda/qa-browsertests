@@ -13,6 +13,7 @@ Feature: UploadWizard
     Then Upload page should appear
       And Select a media file to donate button should be there
 
+  @phantomjs-bug
   Scenario: Navigate to Release rights page
     When I click Next button at Learn page
       And upload file image.png
@@ -20,6 +21,7 @@ Feature: UploadWizard
     Then Release rights page should open
       And Next button should be there
 
+  @phantomjs-bug
   Scenario: Navigate to Describe page
     When I click Next button at Learn page
       And upload file image.png
@@ -29,6 +31,7 @@ Feature: UploadWizard
     Then Describe page should open
       And title text field should be there
 
+  @phantomjs-bug
   Scenario: Navigate to Use page
     When I click Next button at Learn page
       And upload file image.png
