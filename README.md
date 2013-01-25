@@ -6,7 +6,7 @@ File with credentials should be located at `/private/wmf/secret.yml`.
 
 - Firefox 18
 - Ruby 1.9.3 p362 or p374
-- RubyGems 1.8.24
+- RubyGems 1.8.25
 
 Install required RubyGems:
 
