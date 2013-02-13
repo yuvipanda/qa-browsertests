@@ -27,7 +27,6 @@ Then /^Log in element should be there$/ do
 end
 Then /^Log in page should open$/ do
   @browser.url.should match /Special:UserLogin/
-  @browser.execute_script('return mw.loader.getModuleNames().filter(function (module) { return mw.loader.getState(module) === "error"; }).length === 0;').should be_true
 end
 Then /^Password element should be there$/ do
   on(LoginPage).password_element.should exist
