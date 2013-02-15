@@ -10,6 +10,12 @@ Feature: Guided Tour
     When I click Okay
     Then I should see a Click Edit popup
 
+  Scenario: Check for Preview popup
+    Given I am on a page with Click Edit popup
+    When I click the Edit link on the wiki page
+    Then I should see a Preview popup
+    
+
 
   
 

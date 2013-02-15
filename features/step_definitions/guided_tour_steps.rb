@@ -21,4 +21,18 @@ Then /^I should see a Click Edit popup$/ do
   on(TourPage).guider2_element.should exist
 end
 
+Given /^I am on a page with Click Edit popup$/ do
+  step 'I am on a page with Ready to Help lightbox'
+  step 'I click Okay' 
+end
+
+When /^I click the Edit link on the wiki page$/ do
+  on(TourPage).edit
+end
+
+Then /^I should see a Preview popup$/ do
+  on(TourPage).guider3_element.should exist
+end
+
+
 
