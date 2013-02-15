@@ -4,17 +4,17 @@
 
 File with credentials should be located at `/private/wmf/secret.yml`.
 
-- Firefox 18
-- Ruby 1.9.3-p385
-- RubyGems 1.8.25
+To run the Selenium tests you will have to install Ruby (for the exact version see .rvmrc), the latest versions of RubyGems and Firefox. The easiest way to install Ruby on *nix is RVM (https://rvm.io/) and on Windows RubyInstaller (http://rubyinstaller.org/).
 
-Install required RubyGems:
+Update RubyGems and install required RubyGems:
 
     gem update --system
     gem install bundler
     bundle install
 
 Run the tests with `bundle exec rake`.
+
+HTML report is created at reports/ and XML report (for Jenkins) is created at reports/junit.
 
 ## Sites
 
