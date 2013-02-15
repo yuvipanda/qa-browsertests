@@ -14,6 +14,11 @@ Feature: Guided Tour
     Given I am on a page with Click Edit popup
     When I click the Edit link on the wiki page
     Then I should see a Preview popup
+
+  Scenario: Check for You're almost finished popup
+    Given I am on a page with Preview popup
+    When I click Show Preview on the wiki page
+    Then I should see a You're almost finished popup
     
 
 

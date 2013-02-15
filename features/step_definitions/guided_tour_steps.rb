@@ -34,5 +34,19 @@ Then /^I should see a Preview popup$/ do
   on(TourPage).guider3_element.should exist
 end
 
+Given /^I am on a page with Preview popup$/ do
+  step 'I am on a page with Click Edit popup'
+  step 'I click the Edit link on the wiki page'
+end
+
+When /^I click Show Preview on the wiki page$/ do
+  on(TourPage).preview
+end
+
+Then /^I should see a You're almost finished popup$/ do
+  on(TourPage).guider4_element.should exist
+end
+
+
 
 
