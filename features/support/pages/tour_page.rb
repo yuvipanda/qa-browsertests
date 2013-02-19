@@ -10,4 +10,5 @@ class TourPage
   a(:okay, text: 'Okay')
   button(:preview, id: 'wpPreview')
   button(:submit_changes, id: "wpSave")
+  text_field(:text, id: "wpTextbox1")
 end

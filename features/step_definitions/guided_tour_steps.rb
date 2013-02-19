@@ -57,3 +57,14 @@ end
 Then /^Looking for more to do guider should not appear$/ do
   on(TourPage).guider5_element.should_not be_visible
 end
+
+When /^I save the page is changed and saved$/ do
+  on(TourPage) do |page|
+    page.text_element.send_keys "guided tour test"
+    page.submit_changes
+  end
+end
+
+Then /^Looking for more to do guider should appear$/ do
+  on(TourPage).guider5_element.should be_visible
+end
