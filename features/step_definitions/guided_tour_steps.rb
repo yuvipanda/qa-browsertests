@@ -1,5 +1,3 @@
-
-
 When /^I append \?tour=gettingstarted to the page URL$/ do
   @browser.goto(@browser.url + '?tour=gettingstarted')
 end
@@ -47,6 +45,15 @@ Then /^I should see a You're almost finished guider$/ do
   on(TourPage).guider4_element.should exist
 end
 
+Given /^I am on a page with You're almost finished guider$/ do
+  step 'I am on a page with Preview guider'
+  step 'I click Show Preview on the wiki page'
+end
 
+When /^I save the page without changing anything$/ do
+  on(TourPage).submit_changes
+end
 
-
+Then /^Looking for more to do guider should not appear$/ do
+  on(TourPage).guider5_element.should_not be_visible
+end
