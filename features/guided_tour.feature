@@ -24,3 +24,8 @@ Feature: Guided Tour
     Given I am on a page with You're almost finished guider
     When I save the page without changing anything
     Then Looking for more to do guider should not appear
+
+  Scenario: Check that "Looking for more to do" guider does appear when page is changed and saved
+    Given I am on a page with You're almost finished guider
+    When I save the page is changed and saved
+    Then Looking for more to do guider should appear
