@@ -19,3 +19,8 @@ Feature: Guided Tour
     Given I am on a page with Preview guider
     When I click Show Preview on the wiki page
     Then I should see a You're almost finished guider
+
+  Scenario: Check that "Looking for more to do" guider does not appear when page is saved but not changed
+    Given I am on a page with You're almost finished guider
+    When I save the page without changing anything
+    Then Looking for more to do guider should not appear
