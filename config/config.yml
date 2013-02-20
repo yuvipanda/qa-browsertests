@@ -7,7 +7,7 @@ base_url:
   wikipediam: http://en.m.wikipedia.org/wiki/
   wmflabs: http://en.wikipedia.beta.wmflabs.org/wiki/
 
-mediawiki_username: uploadwizardtest
+mediawiki_username: Selenium_user
 
 android:
   name: android
