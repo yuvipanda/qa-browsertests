@@ -1,11 +1,11 @@
 Feature: Universal Language Selector Accept-Language
 
-  Scenario: Accept-Language is German
-    Given that my browser's accept language is de
+  Scenario Outline: Accept-Language is German
+    Given that my browser's accept language is <language>
     When I visit a random page
-    Then link to the main page has text Hauptseite
+    Then link to the main page has text <text>
 
-  Scenario: Accept-Language is Serbian
-    Given that my browser's accept language is sr
-    When I visit a random page
-    Then link to the main page has text Главна страна
+  Examples:
+    | language | text          |
+    | de       | Hauptseite    |
+    | sr       | Главна страна |
