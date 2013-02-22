@@ -10,3 +10,4 @@ Feature: Universal Language Selector Accept-Language
     | de       | Hauptseite    |
     | sr       | Главна страна |
     | sr-cyrl  | Главна страна |
+    | sr-latn  | Glavna strana |
