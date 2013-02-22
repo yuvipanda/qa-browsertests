@@ -1,3 +1,4 @@
+@firefox
 Feature: Universal Language Selector Accept-Language
 
   Scenario Outline: Accept-Language

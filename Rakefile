@@ -20,6 +20,11 @@ def run_tests(browser)
   `parallel_cucumber features/ -n #{processes} --test-options '--profile #{browser}'`
 end
 
+desc 'Run all Cucumber features in parallel, do not run tests that fail in Chrome.'
+task :chrome do |t|
+  run_tests(t.name)
+end
+
 desc 'Run all Cucumber features in parallel, do not run tests that have known bugs in IE6.'
 task :ie6 do |t|
   run_tests(t.name)
