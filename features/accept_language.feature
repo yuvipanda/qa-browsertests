@@ -1,6 +1,6 @@
 Feature: Universal Language Selector Accept-Language
 
-  Scenario Outline: Accept-Language is German
+  Scenario Outline: Accept-Language
     Given that my browser's accept language is <language>
     When I visit a random page
     Then link to the main page has text <text>
@@ -9,3 +9,4 @@ Feature: Universal Language Selector Accept-Language
     | language | text          |
     | de       | Hauptseite    |
     | sr       | Главна страна |
+    | sr-cyrl  | Главна страна |
