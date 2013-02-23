@@ -7,4 +7,6 @@ class RandomTranslateWikiPage
   page_url url
 
   li(:main_page, id: 'n-mainpage-description')
+  a(:uls_trigger, class: 'uls-trigger')
+  div(:search, id: 'search')
 end
