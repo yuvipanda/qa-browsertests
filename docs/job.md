@@ -29,3 +29,4 @@
   - Post-build Actions > Add post-build action
     - Publish JUnit test result report > Test report XMLs: reports/junit/*.xml
     - E-mail Notification > Recipients: (recipients)
+    - IRC Notification
