@@ -1,5 +1,5 @@
-Given /^I go to a Create account page$/ do
-  visit CreateAccountPage
+Given /^I go to Create account page at (.+)$/ do |path|
+  visit(CreateAccountPage, :using_params => {:page_title => path})
 end
 
 Then /^form has Create account button$/ do

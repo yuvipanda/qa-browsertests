@@ -3,9 +3,9 @@ class CreateAccountPage
   include URLModule
 
   def self.url
-    URLModule.url('Special:CreateAccount')
+    URLModule.url('')
   end
-  page_url url
+  page_url "#{url}<%=params[:page_title]%>"
 
   button(:create_account, id: 'wpCreateaccount')
 
