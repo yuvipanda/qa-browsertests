@@ -11,5 +11,5 @@ Feature: Universal Language Selector Accept-Language
     | language | text          |
     | de       | Hauptseite    |
     | sr       | Главна страна |
-    | sr-cyrl  | Главна страна |
-    | sr-latn  | Glavna strana |
+    | sr-ec    | Главна страна |
+    | sr-el    | Glavna strana |
