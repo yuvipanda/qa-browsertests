@@ -191,6 +191,18 @@
           <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
           <sendToIndividuals>false</sendToIndividuals>
         </hudson.tasks.Mailer>
+        <hudson.plugins.ircbot.IrcPublisher plugin="ircbot@2.21">
+          <targets class="java.util.Collections$EmptyList"/>
+          <strategy>STATECHANGE_ONLY</strategy>
+          <notifyOnBuildStart>false</notifyOnBuildStart>
+          <notifySuspects>false</notifySuspects>
+          <notifyCulprits>false</notifyCulprits>
+          <notifyFixers>false</notifyFixers>
+          <notifyUpstreamCommitters>false</notifyUpstreamCommitters>
+          <buildToChatNotifier class="hudson.plugins.im.build_notify.DefaultBuildToChatNotifier" plugin="instant-messaging@1.25"/>
+          <matrixMultiplier>ONLY_CONFIGURATIONS</matrixMultiplier>
+          <channels/>
+        </hudson.plugins.ircbot.IrcPublisher>
       </publishers>
       <buildWrappers/>
       <executionStrategy class="hudson.matrix.DefaultMatrixExecutionStrategyImpl">
