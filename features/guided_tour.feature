@@ -27,6 +27,8 @@ Feature: Guided Tour
     When I save the page without changing anything
     Then Looking for more to do guider should not appear
 
+  # https://bugzilla.wikimedia.org/show_bug.cgi?id=46168
+  @bug
   Scenario: Check that "Looking for more to do" guider does appear when page is changed and saved
     Given I am on a page with You're almost finished guider
     When I save the page is changed and saved
