@@ -4,7 +4,7 @@
 
 - Jenkins > Templates > New Template > (name) > Job Template > OK > Save
 - Display Name: (name)
-- Description: Makes it easy to create new Jenkins job to run browser (desktop or mobile) tests.
+- Description: (description)
 - Instantiable?: check
 - Attribute
 
@@ -23,20 +23,13 @@
   - Options
     - Display Name: (name)
     - Value: (name)
-
-      - (name)
-        - desktop
-          - chrome
-          - firefox
-          - internet_explorer_6
-          - internet_explorer_7
-          - internet_explorer_8
-          - internet_explorer_9
-          - internet_explorer_10
-        - mobile
-          - android
-          - ipad
-          - iphone
+      - chrome
+      - firefox
+      - internet_explorer_6
+      - internet_explorer_7
+      - internet_explorer_8
+      - internet_explorer_9
+      - internet_explorer_10
 
 ## bundle exec
 
@@ -63,12 +56,6 @@
 
     - Display Name: browsertests@cloudbees
     - Value: git://git.cloudbees.com/wmf/browsertests.git
-
-    - Display Name: MobileFrontend@gerrit
-    - Value: ssh://Zfilipin@gerrit.wikimedia.org:29418/mediawiki/extensions/MobileFrontend
-
-    - Display Name: MobileFrontend@cloudbees
-    - Value: ssh://git@git.cloudbees.com/wmf/MobileFrontend.git
 
 ## Branch
 
