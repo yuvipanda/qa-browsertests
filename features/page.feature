@@ -27,3 +27,27 @@ Feature: Page
       And Edit link should be there
       And View History link should be there
       And watchlist element should not be there
+
+  Scenario: Move existing page dialog
+    Given I am on the newly created page
+    When I click Move
+    Then I should be on a page that says Move newly created page
+      And I should see a Namespace selectbox
+      And I should see a To new title textbox
+      And I should see a Reason textarea
+      And I should see a Leave a redirect radio button
+      And I should see a Watch source page radio button
+
+  Scenario: Move existing page
+    Given I have clicked Move on the newly created page
+    When I type To new page name containing the name of the existing page plus text Moved
+      And I click Move page
+    Then I should be on a page that says Move succeeded
+      And I should have a link to the old page title and a link to the new page title
+      And I should see the text A redirect has been created
+
+  Scenario: Moved page checks
+    Given I moved a page successfully
+    When I open the new page URL
+      Then the page displays the new title
+      And the old page displays a redirect to the new page
