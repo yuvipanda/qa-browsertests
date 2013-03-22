@@ -30,6 +30,6 @@ Feature: Log in
       And feedback should be Incorrect password entered. Please try again.
 
   Scenario: Log in with valid credentials
-    When Log in as Uploadwizardtest
-    Then Log in page should open
-      And there should be text You are now logged in to Wikipedia as "Uploadwizardtest".
+    When Log in as Selenium_user
+    Then main page should open
+      And main page should have text Selenium user

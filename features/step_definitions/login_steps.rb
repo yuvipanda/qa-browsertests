@@ -28,6 +28,12 @@ end
 Then /^Log in page should open$/ do
   @browser.url.should match /Special:UserLogin/
 end
+Then(/^main page should have text (.+)$/) do |text|
+  @browser.text.should match text
+end
+Then(/^main page should open$/) do
+  @browser.url.should == on(MainPage).class.url
+end
 Then /^Password element should be there$/ do
   on(LoginPage).password_element.should exist
 end
