@@ -85,15 +85,13 @@ if ENV['ENVIRONMENT'] == 'cloudbees'
   saucelabs_key = secret['saucelabs_key']
 end
 
-does_not_exist_page_name = Random.new.rand
-
 Before('@login') do
   puts "secret.yml file at /private/wmf/ or config/ is required for tests tagged @login" if secret_yml_location == nil
 end
 
 Before do |scenario|
   @config = config
-  @does_not_exist_page_name = does_not_exist_page_name
+  @does_not_exist_page_name = Random.new.rand.to_s
   @mediawiki_username = mediawiki_username
   @mediawiki_password = mediawiki_password
   @browser = browser(environment, test_name(scenario), saucelabs_username, saucelabs_key)

@@ -31,7 +31,8 @@ Feature: Page
   @login
   Scenario: Move existing page dialog
     Given I am logged in
-      And I am on a newly created page with article text
+      And I am starting a page to be moved
+      And I create the page to be moved
     When I click Move
     Then I should be on a page that says Move newly created page
       And I should see a Namespace selectbox
@@ -41,12 +42,14 @@ Feature: Page
       And I should see a Watch source page radio button
 
   Scenario: Move existing page
-    Given I have clicked Move on the newly created page
-    When I type To new page name containing the name of the existing page plus text Moved
+    Given I am logged in
+    And I am starting a page to be moved to a new name
+    And I have clicked Move on the newly created page
+    When I make a new page name for the moved page
       And I click Move page
     Then I should be on a page that says Move succeeded
-      And I should have a link to the old page title and a link to the new page title
       And I should see the text A redirect has been created
+      And I should have a link to the old page title and a link to the new page title
 
   Scenario: Moved page checks
     Given I moved a page successfully
