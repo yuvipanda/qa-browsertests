@@ -29,7 +29,8 @@ Feature: Page
       And watchlist element should not be there
 
   Scenario: Move existing page dialog
-    Given I am on the newly created page
+    Given I am logged in
+      And I am on a newly created page with article text
     When I click Move
     Then I should be on a page that says Move newly created page
       And I should see a Namespace selectbox

@@ -36,3 +36,40 @@ end
 Then /^watchlist element should not be there$/ do
   on(ArticlePage).watchlist_element.should_not exist
 end
+Given(/^I am on a newly created page with article text$/) do
+  step 'I am at page that does not exist'
+  step 'I click link Create'
+  step 'I enter article text'
+  step 'I click Save page button'
+end
+
+When(/^I click Move$/) do
+  on(ArticlePage).actions_link
+  on(ArticlePage).move_link
+end
+
+Then(/^I should be on a page that says Move newly created page$/) do
+  @browser.url.should match /Special:MovePage/
+  @browser.text.should match /Move page: #{@does_not_exist_page_name}/
+end
+
+Then(/^I should see a Namespace selectbox$/) do
+  on(MovePage).namespace_element.should exist
+end
+
+Then(/^I should see a To new title textbox$/) do
+  on(MovePage).new_title_element.should exist
+end
+
+Then(/^I should see a Reason textarea$/) do
+  on(MovePage).reason_element.should exist
+end
+
+Then(/^I should see a Leave a redirect radio button$/) do
+  on(MovePage).leave_redirect_element.should exist
+end
+
+Then(/^I should see a Watch source page radio button$/) do
+  on(MovePage).watch_source_element.should exist
+end
+
