@@ -11,7 +11,7 @@ When /^click button Continue$/ do
   on(UploadPage).continue_element.when_present.click
 end
 When /^I click Next button$/ do
-  on(UploadWizardPage).next_element.click
+  on(UploadWizardPage).next_element.when_present.click
 end
 When /^I click Next button at Describe page$/ do
   sleep 1 # todo # I can not figure out at the moment how to make this work without using sleep
@@ -24,7 +24,7 @@ When /^I click Next button at Release rights page$/ do
   on(ReleaseRightsPage).next_element.click
 end
 When /^I click This file is my own work$/ do
-  on(ReleaseRightsPage).my_own_work_element.click
+  on(ReleaseRightsPage).my_own_work_element.when_present.click
 end
 When /^I enter description$/ do
   on(DescribePage).description = 'description'
