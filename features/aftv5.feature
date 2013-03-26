@@ -1,6 +1,5 @@
-# https://bugzilla.wikimedia.org/show_bug.cgi?id=46382 @bug
 # http://www.mediawiki.org/wiki/Article_feedback/Version_5/Feature_Requirements#Platforms @ie6-bug @phantomjs-bug
-@bug @ie6-bug @phantomjs-bug
+@ie6-bug @phantomjs-bug
 Feature: AFTv5
 
   Scenario: Check if AFTv5 is on the page
