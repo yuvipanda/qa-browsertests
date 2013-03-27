@@ -28,6 +28,7 @@ Feature: Page
       And View History link should be there
       And watchlist element should not be there
 
+  @login
   Scenario: Move existing page dialog
     Given I am logged in
       And I am on a newly created page with article text

@@ -75,13 +75,21 @@ end
 config = YAML.load_file('config/config.yml')
 mediawiki_username = config['mediawiki_username']
 
-raise "\nsecret.yml file at /private/wmf/ or config/ is required for tests to run\n\n" if secret_yml_location == nil
-secret = YAML.load_file("#{secret_yml_location}secret.yml")
-mediawiki_password = secret['mediawiki_password']
-saucelabs_username = secret['saucelabs_username']
-saucelabs_key = secret['saucelabs_key']
+unless secret_yml_location == nil
+  secret = YAML.load_file("#{secret_yml_location}secret.yml")
+  mediawiki_password = secret['mediawiki_password']
+end
+
+if ENV['ENVIRONMENT'] == 'cloudbees'
+  saucelabs_username = secret['saucelabs_username']
+  saucelabs_key = secret['saucelabs_key']
+end
 
 does_not_exist_page_name = Random.new.rand
+
+Before('@login') do
+  puts "secret.yml file at /private/wmf/ or config/ is required for tests tagged @login" if secret_yml_location == nil
+end
 
 Before do |scenario|
   @config = config

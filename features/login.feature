@@ -29,6 +29,7 @@ Feature: Log in
     Then Log in page should open
       And feedback should be Incorrect password entered. Please try again.
 
+  @login
   Scenario: Log in with valid credentials
     When Log in as Selenium_user
     Then main page should open
