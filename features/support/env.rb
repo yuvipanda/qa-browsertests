@@ -57,6 +57,13 @@ def sauce_browser(test_name, saucelabs_username, saucelabs_key)
 
   browser
 end
+def secret_yml_location
+  secret_yml_locations = ['/private/wmf/', 'config/']
+  secret_yml_locations.each do |secret_yml_location|
+    return secret_yml_location if File.exists?("#{secret_yml_location}secret.yml")
+  end
+  nil
+end
 def test_name(scenario)
   if scenario.respond_to? :feature
     "#{scenario.feature.name}: #{scenario.name}"
@@ -68,7 +75,8 @@ end
 config = YAML.load_file('config/config.yml')
 mediawiki_username = config['mediawiki_username']
 
-secret = YAML.load_file('/private/wmf/secret.yml')
+raise "\nsecret.yml file at /private/wmf/ or config/ is required for tests to run\n\n" if secret_yml_location == nil
+secret = YAML.load_file("#{secret_yml_location}secret.yml")
 mediawiki_password = secret['mediawiki_password']
 saucelabs_username = secret['saucelabs_username']
 saucelabs_key = secret['saucelabs_key']
