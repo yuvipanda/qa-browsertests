@@ -24,7 +24,7 @@ When /^I click Next button at Release rights page$/ do
   on(ReleaseRightsPage).next_element.click
 end
 When /^I click This file is my own work$/ do
-  on(ReleaseRightsPage).my_own_work_element.when_present.click
+  on(ReleaseRightsPage).select_my_own_work
 end
 When /^I enter description$/ do
   on(DescribePage).description = 'description'
