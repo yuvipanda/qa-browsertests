@@ -1,9 +1,5 @@
 Given /^that my browser's accept language is (.+)$/ do |language|
-  @browser.close
-
-  profile = Selenium::WebDriver::Firefox::Profile.new
-  profile['intl.accept_languages'] = language
-  @browser = Watir::Browser.new :firefox, :profile => profile
+  @browser = browser(environment, test_name(@scenario), @saucelabs_username, @saucelabs_key, language)
 end
 
 When /^I visit a random page$/ do

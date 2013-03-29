@@ -7,11 +7,11 @@ require 'yaml'
 
 World(PageObject::PageFactory)
 
-def browser(environment, test_name, saucelabs_username, saucelabs_key)
+def browser(environment, test_name, saucelabs_username, saucelabs_key, language)
   if environment == :cloudbees
-    sauce_browser(test_name, saucelabs_username, saucelabs_key)
+    sauce_browser(test_name, saucelabs_username, saucelabs_key, language)
   else
-    local_browser
+    local_browser(language)
   end
 end
 def environment
@@ -21,23 +21,36 @@ def environment
     :local
   end
 end
-def local_browser
+def local_browser(language)
   if ENV['BROWSER_LABEL']
     browser_label = ENV['BROWSER_LABEL'].to_sym
   else
     browser_label = :firefox
   end
 
-  Watir::Browser.new browser_label
+  if language == 'default'
+    Watir::Browser.new browser_label
+  else
+    profile = Selenium::WebDriver::Firefox::Profile.new
+    profile['intl.accept_languages'] = language
+    Watir::Browser.new browser_label, :profile => profile
+  end
 end
 def sauce_api(json, saucelabs_username, saucelabs_key)
   %x{curl -H 'Content-Type:text/json' -s -X PUT -d '#{json}' http://#{saucelabs_username}:#{saucelabs_key}@saucelabs.com/rest/v1/#{saucelabs_username}/jobs/#{$session_id}}
 end
-def sauce_browser(test_name, saucelabs_username, saucelabs_key)
+def sauce_browser(test_name, saucelabs_username, saucelabs_key, language)
   config = YAML.load_file('config/config.yml')
   browser_label = config[ENV['BROWSER_LABEL']]
 
-  caps = Selenium::WebDriver::Remote::Capabilities.send(browser_label['name'])
+  if language == 'default'
+    caps = Selenium::WebDriver::Remote::Capabilities.send(browser_label['name'])
+  else
+    profile = Selenium::WebDriver::Firefox::Profile.new
+    profile['intl.accept_languages'] = language
+    caps = Selenium::WebDriver::Remote::Capabilities.send(browser_label['name'], :firefox_profile => profile)
+  end
+
   caps.platform = browser_label['platform']
   caps.version = browser_label['version']
   caps[:name] = "#{test_name} #{ENV['JOB_NAME']}##{ENV['BUILD_NUMBER']}"
@@ -85,6 +98,12 @@ if ENV['ENVIRONMENT'] == 'cloudbees'
   saucelabs_key = secret['saucelabs_key']
 end
 
+Before('@language') do |scenario|
+  @language = true
+  @saucelabs_username = saucelabs_username
+  @saucelabs_key = saucelabs_key
+  @scenario = scenario
+end
 Before('@login') do
   puts "secret.yml file at /private/wmf/ or config/ is required for tests tagged @login" if secret_yml_location == nil
 end
@@ -94,11 +113,11 @@ Before do |scenario|
   @does_not_exist_page_name = Random.new.rand.to_s
   @mediawiki_username = mediawiki_username
   @mediawiki_password = mediawiki_password
-  @browser = browser(environment, test_name(scenario), saucelabs_username, saucelabs_key)
-  $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
+  @browser = browser(environment, test_name(scenario), saucelabs_username, saucelabs_key, 'default') unless @language
 end
 
 After do |scenario|
+  $session_id = @browser.driver.instance_variable_get(:@bridge).session_id
   if environment == :cloudbees
     sauce_api(%Q{{"passed": #{scenario.passed?}}}, saucelabs_username, saucelabs_key)
     sauce_api(%Q{{"public": true}}, saucelabs_username, saucelabs_key)

@@ -1,5 +1,4 @@
-# TODO: at the moment only works locally, does not work at Sauce Labs
-@firefox @firefox-bug
+@firefox @language
 Feature: Universal Language Selector Accept-Language
 
   Scenario Outline: Accept-Language
