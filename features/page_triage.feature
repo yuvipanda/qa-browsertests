@@ -8,8 +8,7 @@ Feature: PageTriage
       And I should not see a Review button
 
   # https://bugzilla.wikimedia.org/show_bug.cgi?id=43598 ie
-  # https://bugzilla.wikimedia.org/show_bug.cgi?id=46367 ff
-  @ie6-bug @ie7-bug @firefox-bug
+  @ie6-bug @ie7-bug
   Scenario: Check set filters selection
     Given I am at the NewPagesFeed page
     When I click Set filters
