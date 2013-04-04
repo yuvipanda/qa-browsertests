@@ -41,6 +41,7 @@ Feature: Page
       And I should see a Leave a redirect radio button
       And I should see a Watch source page radio button
 
+  @login
   Scenario: Move existing page
     Given I am logged in
     And I am starting a page to be moved to a new name
@@ -50,9 +51,5 @@ Feature: Page
     Then I should be on a page that says Move succeeded
       And I should see the text A redirect has been created
       And I should have a link to the old page title and a link to the new page title
-
-  Scenario: Moved page checks
-    Given I moved a page successfully
-    When I open the new page URL
-      Then the page displays the new title
-      And the old page displays a redirect to the new page
+      And the the new page should have the correct text
+      And the old page should display a redirect to the new page
