@@ -26,10 +26,10 @@ Then /^Log in element should be there$/ do
   on(LoginPage).login_element.should exist
 end
 Then /^Log in page should open$/ do
-  @browser.url.should match /Special:UserLogin/
+  @browser.url.should match Regexp.escape('Special:UserLogin')
 end
 Then(/^main page should have text (.+)$/) do |text|
-  @browser.text.should match text
+  @browser.text.should match Regexp.escape(text)
 end
 Then(/^main page should open$/) do
   @browser.url.should == on(MainPage).class.url
