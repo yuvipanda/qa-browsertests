@@ -13,11 +13,11 @@ end
 
 desc 'Run all Cucumber features in parallel.'
 task :parallel do
-  `parallel_cucumber features/ -n #{processes} --test-options '--profile ci'`
+  `bundle exec parallel_cucumber features/ -n #{processes} --test-options '--profile ci'`
 end
 
 def run_tests(browser)
-  `parallel_cucumber features/ -n #{processes} --test-options '--profile #{browser}'`
+  `bundle exec parallel_cucumber features/ -n #{processes} --test-options '--profile #{browser}'`
 end
 
 desc 'Run all Cucumber features in parallel, do not run tests that fail in Chrome.'
