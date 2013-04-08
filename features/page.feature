@@ -41,7 +41,7 @@ Feature: Page
       And I should see a Leave a redirect radio button
       And I should see a Watch source page radio button
 
-  @login
+  @ie6-bug @login
   Scenario: Move existing page
     Given I am logged in
     And I am starting a page to be moved to a new name
