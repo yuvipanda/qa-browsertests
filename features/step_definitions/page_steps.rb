@@ -53,8 +53,8 @@ When(/^I click Move$/) do
 end
 
 Then(/^I should be on a page that says Move newly created page$/) do
-  @browser.url.should match /Special:MovePage/
-  @browser.text.should match /Move page: #{@does_not_exist_page_name}/
+  @browser.url.should match Regexp.escape('Special:MovePage')
+  @browser.text.should match Regexp.escape("Move page: #{@does_not_exist_page_name}")
 end
 
 Then(/^I should see a Namespace selectbox$/) do
@@ -97,7 +97,7 @@ When(/^I click Move page$/) do
 end
 
 Then(/^I should be on a page that says Move succeeded$/) do
-  @browser.text.should match /Move succeeded/
+  @browser.text.should match Regexp.escape('Move succeeded')
 end
 
 Then(/^I should have a link to the old page title and a link to the new page title$/) do
@@ -106,7 +106,7 @@ Then(/^I should have a link to the old page title and a link to the new page tit
 end
 
 Then(/^I should see the text A redirect has been created$/) do
-  @browser.text.should match /A redirect has been created/
+  @browser.text.should match Regexp.escape('A redirect has been created')
 end
 
 Then(/^the the new page should have the correct text$/) do
