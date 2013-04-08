@@ -32,7 +32,7 @@ Feature: UploadWizard
     Then Describe page should open
       And title text field should be there
 
-  @phantomjs-bug
+  @ie6-bug @ie7-bug @ie8-bug @phantomjs-bug
   Scenario: Navigate to Use page
     When I click Next button at Learn page
       And upload file image.png
