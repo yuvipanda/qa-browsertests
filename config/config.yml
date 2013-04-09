@@ -22,7 +22,7 @@ chrome:
 firefox:
   name: firefox
   platform: Linux
-  version: 19
+  version: 20
 
 internet_explorer_6:
   name: internet_explorer
