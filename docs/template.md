@@ -84,7 +84,7 @@
     - name:
       - en.wikipedia.beta.wmflabs.org
       - test2.wikipedia.org
-      - commons.wikipedia.beta.wmflabs.org
+      - commons.wikimedia.beta.wmflabs.org
       - sandbox.translatewiki.net
 
 ## Jelly-based transformation
