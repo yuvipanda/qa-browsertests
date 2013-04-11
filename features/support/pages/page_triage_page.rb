@@ -1,9 +1,13 @@
 class PageTriagePage
   include PageObject
-  include URLModule
 
   def self.url
-    URLModule.url('Special:NewPagesFeed')
+    if ENV['MEDIAWIKI_URL']
+      mediawiki_url = ENV['MEDIAWIKI_URL']
+    else
+      mediawiki_url = 'http://en.wikipedia.beta.wmflabs.org/wiki/'
+    end
+    "#{mediawiki_url}Special:NewPagesFeed"
   end
   page_url url
 

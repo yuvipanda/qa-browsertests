@@ -1,10 +1,5 @@
 Given /^I am logged in$/ do
-  if ENV['BASE_URL']
-    base_url = @config['base_url'][ENV['BASE_URL']]
-  else
-    base_url = @config['base_url']['test2']
-  end
-  visit(LoginPage, using_params: {base_url: base_url}).login_with(@mediawiki_username, @mediawiki_password)
+  visit(LoginPage).login_with(@mediawiki_username, @mediawiki_password)
 end
 
 When /^click button Continue$/ do

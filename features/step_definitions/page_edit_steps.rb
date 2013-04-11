@@ -1,9 +1,5 @@
-Given /^I am at Unix page$/ do
-  visit UnixPage
-end
-
 When /^I click edit$/ do
-  on(UnixPage).edit
+  on(AFTv5Page).edit
 end
 When /^I click the Read Link$/ do
   on(EditPage).read

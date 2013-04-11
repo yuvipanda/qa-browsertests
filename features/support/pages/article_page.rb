@@ -1,9 +1,13 @@
 class ArticlePage
   include PageObject
-  include URLModule
 
   def self.url
-    URLModule.url('<%=params[:page_name]%>')
+    if ENV['MEDIAWIKI_URL']
+      mediawiki_url = ENV['MEDIAWIKI_URL']
+    else
+      mediawiki_url = 'http://en.wikipedia.beta.wmflabs.org/wiki/'
+    end
+    "#{mediawiki_url}<%=params[:page_name]%>"
   end
   page_url url
 

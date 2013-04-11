@@ -14,4 +14,7 @@ class RandomPage
   li(:main_page, id: 'n-mainpage-description')
   a(:uls_trigger, class: 'uls-trigger')
   div(:search, id: 'search')
+
+  text_field(:search_input, id: 'searchInput')
+  button(:search_button, id: 'searchButton')
 end

@@ -3,9 +3,9 @@ Given /^that my browser's accept language is (.+)$/ do |language|
 end
 
 When /^I visit a random page$/ do
-  visit(RandomTranslateWikiPage)
+  visit(RandomPage)
 end
 
 Then /^link to the main page has text (.+)$/ do |text|
-  on(RandomTranslateWikiPage).main_page_element.text.should == text
+  on(RandomPage).main_page_element.text.should == text
 end

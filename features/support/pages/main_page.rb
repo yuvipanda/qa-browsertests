@@ -1,9 +1,13 @@
 class MainPage
   include PageObject
-  include URLModule
 
   def self.url
-    URLModule.url('Main_Page')
+    if ENV['MEDIAWIKI_URL']
+      mediawiki_url = ENV['MEDIAWIKI_URL']
+    else
+      mediawiki_url = 'http://en.wikipedia.beta.wmflabs.org/wiki/'
+    end
+    "#{mediawiki_url}Main_Page"
   end
   page_url url
 

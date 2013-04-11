@@ -71,6 +71,20 @@
       - master
       - debug
 
+## MediaWiki URL
+
+- ID: MEDIAWIKI_URL
+  - Display Name: MediaWiki URL
+  - Type: Select a string among many
+  - UI Mode: Dropdown list (no inline help, but more compact UI)
+  - Options
+    - Display Name: (name)
+    - Value: (name)
+
+    - name:
+      - en.wikipedia.beta.wmflabs.org
+      - test2.wikipedia.org
+
 ## Jelly-based transformation
 
 - Property
@@ -155,7 +169,7 @@
         <hudson.tasks.Shell>
           <command>
     export BROWSER_LABEL=${BROWSER_LABEL}
-    export BASE_URL=test2
+    export MEDIAWIKI_URL=http://${MEDIAWIKI_URL}/wiki/
     export ENVIRONMENT=cloudbees
 
     curl -s -o use-ruby https://repository-cloudbees.forge.cloudbees.com/distributions/ci-addons/ruby/use-ruby

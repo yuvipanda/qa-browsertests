@@ -3,7 +3,7 @@ Given /^I am at the NewPagesFeed page$/ do
 end
 
 When /^I click Set filters$/ do
-  on(PageTriagePage).set_filters_element.click
+  on(PageTriagePage).set_filters_element.when_present.click
 end
 
 Then /^I should see a Learn more link$/ do

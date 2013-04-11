@@ -1,11 +1,15 @@
 class CreateAccountPage
   include PageObject
-  include URLModule
 
   def self.url
-    URLModule.url('')
+    if ENV['MEDIAWIKI_URL']
+      mediawiki_url = ENV['MEDIAWIKI_URL']
+    else
+      mediawiki_url = 'http://en.wikipedia.beta.wmflabs.org/wiki/'
+    end
+    "#{mediawiki_url}<%=params[:page_title]%>"
   end
-  page_url "#{url}<%=params[:page_title]%>"
+  page_url url
 
   button(:create_account, id: 'wpCreateaccount')
 end
