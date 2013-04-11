@@ -1,6 +1,5 @@
-Given /^I am at (.+) Log in page$/ do |site|
-  base_url = @config['base_url'][site]
-  visit(LoginPage, using_params: {base_url: base_url})
+Given /^I am at Log in page$/ do
+  visit LoginPage
 end
 
 When /^I log in with incorrect password$/ do

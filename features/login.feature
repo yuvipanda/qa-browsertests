@@ -1,7 +1,7 @@
 Feature: Log in
 
   Background:
-    Given I am at test2 Log in page
+    Given I am at Log in page
 
   Scenario: Go to Log in page
     Then Log in page should open
