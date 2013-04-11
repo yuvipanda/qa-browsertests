@@ -19,5 +19,3 @@ class LoginPage
     login
   end
 end
-
-

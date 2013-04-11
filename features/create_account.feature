@@ -6,7 +6,7 @@ Feature: Create account
       And page has no ResourceLoader errors
 
   Examples:
-    | path |
-    | Special:CreateAccount |
-    | Special:UserLogin/signup |
+    | path                          |
+    | Special:CreateAccount         |
+    | Special:UserLogin/signup      |
     | Special:UserLogin?type=signup |
