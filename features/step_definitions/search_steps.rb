@@ -20,14 +20,13 @@ Then /^(.+) should be the first result$/ do |page_name|
   on(SearchPage).one_result.should == page_name
 end
 
-Given(/^that I am on the Portuguese Wikivoyage Main page pt\.wikivoyage\.org$/) do
-  visit PtWikivoyageMainPage
-end
-When(/^I search for "(.*?)"$/) do |text|
-  on(PtWikivoyageMainPage).search = text
-  on(PtWikivoyageMainPage).searchbutton
+When(/^I search for (.+)$/) do |text|
+  on(RandomPage) do |page|
+    page.search_input = text
+    page.search_button
+  end
 end
 
-Then(/^the page I arrive on has title "(.*?)"$/) do |title|
- on(PtWikivoyageMainPage).has_expected_title?
+Then(/^the page I arrive on has title (.+)$/) do |title|
+ @browser.title.should match Regexp.escape(title)
 end

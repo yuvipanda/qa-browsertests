@@ -13,9 +13,9 @@ Feature: Search
     Then I should land on Search Results page
 
   Scenario:  Search with accent yields result page with accent
-    Given that I am on the Portuguese Wikivoyage Main page pt.wikivoyage.org
-    When I search for "África"
-    Then the page I arrive on has title "África - Wikivoyage"
+    Given I visit a random page
+    When I search for África
+    Then the page I arrive on has title África
 
   Scenario: Search without accent yields optimal accent result as top choice but shows redlink for search term.  THIS TEST EMULATES CURRENT FUNCTION.
     Given that I am on the Portuguese Wikivoyage Main page pt.wikivoyage.org
