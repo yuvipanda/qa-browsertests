@@ -1,7 +1,7 @@
 Feature: Edit
 
   Background:
-    Given I am at Unix page
+    Given I am at an AFTv5 page
     When I click edit
 
   Scenario: Go to edit page

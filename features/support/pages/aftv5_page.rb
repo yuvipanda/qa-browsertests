@@ -1,12 +1,13 @@
 class AFTv5Page
   include PageObject
 
-  #THIS TEST SHOULD RUN ONLY ON BETA LABS UNTIL AFTV5 IS 100% ENABLED ON TEST2/PROD
   def self.url
-    base_url = 'wmflabs'
-
-    config = YAML.load_file('config/config.yml')
-    "#{config['base_url'][base_url]}Aftpage"
+    if ENV['MEDIAWIKI_URL']
+      mediawiki_url = ENV['MEDIAWIKI_URL']
+    else
+      mediawiki_url = 'http://en.wikipedia.beta.wmflabs.org/wiki/'
+    end
+    "#{mediawiki_url}Aftpage"
   end
   page_url url
 
@@ -14,6 +15,7 @@ class AFTv5Page
   a(:all_comments, text: /All comments/)
   a(:back_to_yesno, text: 'Back to step 1')
   span(:create_account, text: 'Create an account')
+  a(:edit, text: 'Edit')
   a(:feedback_page, text: 'feedback page')
   a(:helpful_feedback, href: 'http://en.wikipedia.org/wiki/Wikipedia:Feedback_guidelines', text: 'helpful feedback')
   text_area(:input_area, id: 'articleFeedbackv5-find-feedback')
