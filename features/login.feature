@@ -33,4 +33,4 @@ Feature: Log in
   Scenario: Log in with valid credentials
     When Log in as Selenium_user
     Then main page should open
-      And main page should have text Selenium user
+      And there should be text Selenium user
