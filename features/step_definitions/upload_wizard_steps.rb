@@ -25,7 +25,7 @@ When /^I enter description$/ do
   on(DescribePage).description = 'description'
 end
 When /^I enter title$/ do
-  on(DescribePage).title = Random.new.rand
+  on(DescribePage).title = "Title #{Random.new.rand}"
 end
 When /^I navigate to Upload Wizard$/ do
   # TODO: add more checks for this page
