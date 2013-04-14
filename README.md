@@ -1,6 +1,8 @@
 Apologies for the spam, but I'm using this to test the PR -> Gerrit workflow, since the test repo isn't being replicated :(
 Just another silly commit
 
+The git is dark and full of potential terrors
+
 Yet another silly commit
 # Browser testing at WMF
 
