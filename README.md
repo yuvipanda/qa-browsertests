@@ -3,6 +3,8 @@ Just another silly commit
 
 The git is dark and full of potential terrors
 
+Did I really compile git from source just now?
+
 Yet another silly commit
 # Browser testing at WMF
 
