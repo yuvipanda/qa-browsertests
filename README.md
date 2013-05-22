@@ -2,7 +2,6 @@ Apologies for the spam, but I'm using this to test the PR -> Gerrit workflow, si
 Just another silly commit
 The git is dark and full of potential terrors
 
-Another commit!
 # Browser testing at WMF
 
 ## Environment
