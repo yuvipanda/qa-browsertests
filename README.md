@@ -7,7 +7,6 @@ Automatic updating might just work...
 Did I really compile git from source just now?
 
 Another commit!
-adsfasdf
 Yet another silly commit
 # Browser testing at WMF
 
