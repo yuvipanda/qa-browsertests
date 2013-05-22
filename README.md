@@ -8,10 +8,6 @@ Testing the automatics!
 
 Did I really compile git from source just now?
 
-Hrrmppff
-
-Testing locally
-
 Another commit!
 adsfasdf
 Yet another silly commit
