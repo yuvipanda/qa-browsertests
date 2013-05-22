@@ -2,7 +2,7 @@ Apologies for the spam, but I'm using this to test the PR -> Gerrit workflow, si
 Just another silly commit
 The git is dark and full of potential terrors
 
-Testing the automatics!
+Automatic updating might just work...
 
 Did I really compile git from source just now?
 
