@@ -4,6 +4,7 @@ Testing hooks
 The git is dark and full of potential terrors
 
 More spam!
+Testing the automatics!
 
 Did I really compile git from source just now?
 
