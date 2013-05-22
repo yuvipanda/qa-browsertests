@@ -3,6 +3,8 @@ Just another silly commit
 Testing hooks
 The git is dark and full of potential terrors
 
+More spam!
+
 Did I really compile git from source just now?
 
 Hrrmppff
